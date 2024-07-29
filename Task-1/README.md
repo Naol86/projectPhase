@@ -32,4 +32,4 @@ A simple Todo list website useing html, css and javascript
 
 ![App Screenshot](https://github.com/Naol86/projectPhase/blob/main/Task-1/images/demo-5.png)
 
-### You edit tasks and save it
+### You can edit tasks and save it
