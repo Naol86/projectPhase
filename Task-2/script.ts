@@ -33,7 +33,7 @@ function showTask(data: Task, index: number): void {
   taskDiv.classList.add('task');
 
   // create the done button div
-  const doneDiv: HTMLElement = document.createElement('button');
+  const doneDiv: HTMLButtonElement = document.createElement('button');
   doneDiv.classList.add('done-btn');
   if (data.done) {
     doneDiv.classList.add('done');
@@ -84,20 +84,20 @@ function showTask(data: Task, index: number): void {
   taskActionsDiv.classList.add('task__actions');
 
   // create action buttons
-  const editButton: HTMLElement = document.createElement('button');
+  const editButton: HTMLButtonElement = document.createElement('button');
   editButton.classList.add('edit', 'btn');
   editButton.textContent = 'Edit';
-  editButton.dataset.index = index.toString();
+  editButton.value = index.toString();
 
   editButton.addEventListener('click', (e): void => {
     editTask(e);
   });
 
   // create delete button
-  const deleteButton: HTMLElement = document.createElement('button');
+  const deleteButton: HTMLButtonElement = document.createElement('button');
   deleteButton.classList.add('delete', 'btn');
   deleteButton.textContent = 'Delete';
-  deleteButton.dataset.index = index.toString();
+  deleteButton.value = index.toString();
 
   deleteButton.addEventListener('click', (e) => deleteTask(e));
 
@@ -133,12 +133,14 @@ function addTask(): void {
 }
 
 function editTask(e: Event): void {
-  const target = e.target as HTMLElement;
-  if (!target || !target.dataset.index) {
-    console.error('No index found');
-    return;
-  }
-  const index: number = parseInt(target.dataset.index) as number;
+  // const target = e.target as HTMLElement;
+  // if (!target || !target.dataset.index) {
+  //   console.error('No index found');
+  //   return;
+  // }
+  const index: number = parseInt(
+    (e.target as HTMLButtonElement).value,
+  ) as number;
   const task: Task = tasks[index];
   form.titleInput.value = task.title;
   form.descriptionInput.value = task.description;
@@ -149,11 +151,11 @@ function editTask(e: Event): void {
   addBtn.classList.add('hidden-btn');
   add.classList.add('hidden-btn');
 
-  const update: HTMLElement = document.createElement('button');
+  const update: HTMLButtonElement = document.createElement('button');
   update.classList.add('update', 'btn');
   update.textContent = 'Update';
 
-  const cancel: HTMLElement = document.createElement('button');
+  const cancel: HTMLButtonElement = document.createElement('button');
   cancel.classList.add('cancel', 'btn');
   cancel.textContent = 'Cancel';
 
@@ -172,7 +174,7 @@ function editTask(e: Event): void {
   update.addEventListener('click', (e): void => {
     const title: string = form.titleInput.value;
     const description: string = form.descriptionInput.value;
-    tasks[index] = { title, description, done: false };
+    tasks[index] = { title, description, done: tasks[index].done };
     render();
     tasksContainer.classList.remove('hidden');
     addBtn.classList.remove('hidden-btn');
@@ -185,13 +187,9 @@ function editTask(e: Event): void {
 }
 
 function deleteTask(e: Event): void {
-  const target = e.target as HTMLElement;
-  if (!target || !target.dataset.index) {
-    console.error('No index found');
-    return;
-  }
-
-  const index: number = parseInt(target.dataset.index);
+  const index: number = parseInt(
+    (e.target as HTMLButtonElement).value,
+  ) as number;
   tasks.splice(index, 1);
   render();
 }

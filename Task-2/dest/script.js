@@ -47,14 +47,14 @@ function showTask(data, index) {
     const editButton = document.createElement('button');
     editButton.classList.add('edit', 'btn');
     editButton.textContent = 'Edit';
-    editButton.dataset.index = index.toString();
+    editButton.value = index.toString();
     editButton.addEventListener('click', (e) => {
         editTask(e);
     });
     const deleteButton = document.createElement('button');
     deleteButton.classList.add('delete', 'btn');
     deleteButton.textContent = 'Delete';
-    deleteButton.dataset.index = index.toString();
+    deleteButton.value = index.toString();
     deleteButton.addEventListener('click', (e) => deleteTask(e));
     taskActionsDiv.appendChild(editButton);
     taskActionsDiv.appendChild(deleteButton);
@@ -81,12 +81,7 @@ function addTask() {
     render();
 }
 function editTask(e) {
-    const target = e.target;
-    if (!target || !target.dataset.index) {
-        console.error('No index found');
-        return;
-    }
-    const index = parseInt(target.dataset.index);
+    const index = parseInt(e.target.value);
     const task = tasks[index];
     form.titleInput.value = task.title;
     form.descriptionInput.value = task.description;
@@ -114,7 +109,7 @@ function editTask(e) {
     update.addEventListener('click', (e) => {
         const title = form.titleInput.value;
         const description = form.descriptionInput.value;
-        tasks[index] = { title, description, done: false };
+        tasks[index] = { title, description, done: tasks[index].done };
         render();
         tasksContainer.classList.remove('hidden');
         addBtn.classList.remove('hidden-btn');
@@ -126,12 +121,7 @@ function editTask(e) {
     });
 }
 function deleteTask(e) {
-    const target = e.target;
-    if (!target || !target.dataset.index) {
-        console.error('No index found');
-        return;
-    }
-    const index = parseInt(target.dataset.index);
+    const index = parseInt(e.target.value);
     tasks.splice(index, 1);
     render();
 }
