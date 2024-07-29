@@ -11,7 +11,7 @@ interface TaskForm extends HTMLElement {
 
 const tasks: Array<Task> = [];
 const tasksContainer: HTMLElement = document.querySelector(
-  '.task-list',
+  '.tasks',
 ) as HTMLElement;
 
 const form: TaskForm = document.querySelector('.addTask') as TaskForm;
@@ -133,18 +133,14 @@ function addTask(): void {
 }
 
 function editTask(e: Event): void {
-  // const target = e.target as HTMLElement;
-  // if (!target || !target.dataset.index) {
-  //   console.error('No index found');
-  //   return;
-  // }
   const index: number = parseInt(
     (e.target as HTMLButtonElement).value,
   ) as number;
   const task: Task = tasks[index];
   form.titleInput.value = task.title;
   form.descriptionInput.value = task.description;
-  tasksContainer.classList.add('hidden');
+  // tasksContainer.classList.add('hidden');
+  tasksContainer.parentElement?.classList.add('hidden');
 
   const addBtn: HTMLElement = document.querySelector('.add-btn') as HTMLElement;
   const add: HTMLElement = document.querySelector('.add') as HTMLElement;
@@ -164,7 +160,8 @@ function editTask(e: Event): void {
   formBtn.appendChild(cancel);
 
   cancel.addEventListener('click', (e): void => {
-    tasksContainer.classList.remove('hidden');
+    // tasksContainer.classList.remove('hidden');
+    tasksContainer.parentElement?.classList.remove('hidden');
     addBtn.classList.remove('hidden-btn');
     add.classList.remove('hidden-btn');
     formBtn.removeChild(update);
@@ -176,7 +173,8 @@ function editTask(e: Event): void {
     const description: string = form.descriptionInput.value;
     tasks[index] = { title, description, done: tasks[index].done };
     render();
-    tasksContainer.classList.remove('hidden');
+    // tasksContainer.classList.remove('hidden');
+    tasksContainer.parentElement?.classList.remove('hidden');
     addBtn.classList.remove('hidden-btn');
     add.classList.remove('hidden-btn');
     formBtn.removeChild(update);

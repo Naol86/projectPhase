@@ -82,15 +82,16 @@ _You can edit tasks and save them_
 projectPhase
 │
 ├── Task-2
+|   ├── dest
+|   |   ├──script.js
 │   ├── images
 │   │   ├── demo-1.png
 │   │   ├── demo-2.png
-│   │   ├── demo-3a.png
+│   │   ├── demo-3.png
 │   │   ├── demo-4.png
 │   │   └── demo-5.png
 │   ├── index.html
 │   └── README.md
-│   ├── script.js
 │   ├── script.ts
 │   ├── styles.css
 ```

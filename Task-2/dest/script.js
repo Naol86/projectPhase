@@ -1,6 +1,6 @@
 "use strict";
 const tasks = [];
-const tasksContainer = document.querySelector('.task-list');
+const tasksContainer = document.querySelector('.tasks');
 const form = document.querySelector('.addTask');
 const add = document.querySelector('.add');
 form.addEventListener('submit', (e) => {
@@ -81,11 +81,12 @@ function addTask() {
     render();
 }
 function editTask(e) {
+    var _a;
     const index = parseInt(e.target.value);
     const task = tasks[index];
     form.titleInput.value = task.title;
     form.descriptionInput.value = task.description;
-    tasksContainer.classList.add('hidden');
+    (_a = tasksContainer.parentElement) === null || _a === void 0 ? void 0 : _a.classList.add('hidden');
     const addBtn = document.querySelector('.add-btn');
     const add = document.querySelector('.add');
     addBtn.classList.add('hidden-btn');
@@ -100,18 +101,20 @@ function editTask(e) {
     formBtn.appendChild(update);
     formBtn.appendChild(cancel);
     cancel.addEventListener('click', (e) => {
-        tasksContainer.classList.remove('hidden');
+        var _a;
+        (_a = tasksContainer.parentElement) === null || _a === void 0 ? void 0 : _a.classList.remove('hidden');
         addBtn.classList.remove('hidden-btn');
         add.classList.remove('hidden-btn');
         formBtn.removeChild(update);
         formBtn.removeChild(cancel);
     });
     update.addEventListener('click', (e) => {
+        var _a;
         const title = form.titleInput.value;
         const description = form.descriptionInput.value;
         tasks[index] = { title, description, done: tasks[index].done };
         render();
-        tasksContainer.classList.remove('hidden');
+        (_a = tasksContainer.parentElement) === null || _a === void 0 ? void 0 : _a.classList.remove('hidden');
         addBtn.classList.remove('hidden-btn');
         add.classList.remove('hidden-btn');
         formBtn.removeChild(update);
