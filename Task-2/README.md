@@ -16,27 +16,27 @@ A simple Todo list website using HTML, CSS, and TypeScript.
 
 ### Landing Page
 
-![Landing Page](https://github.com/Naol86/projectPhase/blob/main/Task-1/images/demo-2.png)
+![Landing Page](https://github.com/Naol86/projectPhase/blob/main/Task-1/images/demo-1.png)
 _Landing page when user enters the Todo list_
 
 ### Add New Tasks
 
-![Add Task](https://github.com/Naol86/projectPhase/blob/main/Task-1/images/demo-3a.png)
+![Add Task](https://github.com/Naol86/projectPhase/blob/main/Task-1/images/demo-2.png)
 _Add new tasks by clicking on "Add Task"_
 
 ### View Added Tasks
 
-![View Tasks](https://github.com/Naol86/projectPhase/blob/main/Task-1/images/demo-4.png)
+![View Tasks](https://github.com/Naol86/projectPhase/blob/main/Task-1/images/demo-3.png)
 _View tasks you added before and mark them as done by clicking on the right icon_
 
 ### Task Status
 
-![Task Status](https://github.com/Naol86/projectPhase/blob/main/Task-1/images/demo-5.png)
+![Task Status](https://github.com/Naol86/projectPhase/blob/main/Task-1/images/demo-4.png)
 _See tasks that are finished or not based on the color_
 
 ### Edit Tasks
 
-![Edit Tasks](https://github.com/Naol86/projectPhase/blob/main/Task-1/images/demo-1.png)
+![Edit Tasks](https://github.com/Naol86/projectPhase/blob/main/Task-1/images/demo-5.png)
 _You can edit tasks and save them_
 
 ## Getting Started
@@ -112,28 +112,6 @@ Contributions are welcome! Please open an issue or submit a pull request for any
 ### License
 
 This project is licensed under the MIT License.
-
-## Images
-
-### Image 1
-
-![Image 1](https://github.com/Naol86/projectPhase/blob/main/Task-1/images/demo-1.png)
-
-### Image 2
-
-![Image 2](https://github.com/Naol86/projectPhase/blob/main/Task-1/images/demo-2.png)
-
-### Image 3
-
-![Image 3](https://github.com/Naol86/projectPhase/blob/main/Task-1/images/demo-3a.png)
-
-### Image 4
-
-![Image 4](https://github.com/Naol86/projectPhase/blob/main/Task-1/images/demo-4.png)
-
-### Image 5
-
-![Image 5](https://github.com/Naol86/projectPhase/blob/main/Task-1/images/demo-5.png)
 
 ```
 
