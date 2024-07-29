@@ -10,10 +10,12 @@ interface TaskForm extends HTMLElement {
 }
 
 const tasks: Array<Task> = [];
-const tasksContainer: HTMLElement = document.querySelector('.task-list');
+const tasksContainer: HTMLElement = document.querySelector(
+  '.task-list',
+) as HTMLElement;
 
-const form: TaskForm = document.querySelector('.addTask');
-const add: HTMLElement = document.querySelector('.add');
+const form: TaskForm = document.querySelector('.addTask') as TaskForm;
+const add: HTMLElement = document.querySelector('.add') as HTMLElement;
 
 form.addEventListener('submit', (e): void => {
   e.preventDefault();
@@ -130,14 +132,22 @@ function addTask(): void {
   render();
 }
 
-function editTask(e): void {
-  const index: number = parseInt(e.target.dataset.index);
+function editTask(e: Event): void {
+  const target = e.target as HTMLElement;
+  if (!target || !target.dataset.index) {
+    console.error('No index found');
+    return;
+  }
+  const index: number = parseInt(target.dataset.index) as number;
   const task: Task = tasks[index];
   form.titleInput.value = task.title;
   form.descriptionInput.value = task.description;
   tasksContainer.classList.add('hidden');
-  document.querySelector('.add-btn').classList.add('hidden-btn');
-  document.querySelector('.add').classList.add('hidden-btn');
+
+  const addBtn: HTMLElement = document.querySelector('.add-btn') as HTMLElement;
+  const add: HTMLElement = document.querySelector('.add') as HTMLElement;
+  addBtn.classList.add('hidden-btn');
+  add.classList.add('hidden-btn');
 
   const update: HTMLElement = document.createElement('button');
   update.classList.add('update', 'btn');
@@ -147,14 +157,14 @@ function editTask(e): void {
   cancel.classList.add('cancel', 'btn');
   cancel.textContent = 'Cancel';
 
-  const formBtn = document.querySelector('.form-btn');
+  const formBtn = document.querySelector('.form-btn') as HTMLElement;
   formBtn.appendChild(update);
   formBtn.appendChild(cancel);
 
   cancel.addEventListener('click', (e): void => {
     tasksContainer.classList.remove('hidden');
-    document.querySelector('.add-btn').classList.remove('hidden-btn');
-    document.querySelector('.add').classList.remove('hidden-btn');
+    addBtn.classList.remove('hidden-btn');
+    add.classList.remove('hidden-btn');
     formBtn.removeChild(update);
     formBtn.removeChild(cancel);
   });
@@ -165,8 +175,8 @@ function editTask(e): void {
     tasks[index] = { title, description, done: false };
     render();
     tasksContainer.classList.remove('hidden');
-    document.querySelector('.add-btn').classList.remove('hidden-btn');
-    document.querySelector('.add').classList.remove('hidden-btn');
+    addBtn.classList.remove('hidden-btn');
+    add.classList.remove('hidden-btn');
     formBtn.removeChild(update);
     formBtn.removeChild(cancel);
     form.titleInput.value = '';
@@ -174,8 +184,14 @@ function editTask(e): void {
   });
 }
 
-function deleteTask(e): void {
-  const index: number = parseInt(e.target.dataset.index);
+function deleteTask(e: Event): void {
+  const target = e.target as HTMLElement;
+  if (!target || !target.dataset.index) {
+    console.error('No index found');
+    return;
+  }
+
+  const index: number = parseInt(target.dataset.index);
   tasks.splice(index, 1);
   render();
 }
