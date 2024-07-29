@@ -14,4 +14,5 @@ A simple Todo list website useing html, css and javascript
 
 ## Screenshots
 
-![App Screenshot](https://github.com/Naol86/projectPhase/blob/main/Task-1/demo.png)
+![App Screenshot](https://github.com/Naol86/projectPhase/blob/main/Task-1/demo-1.png)
+![App Screenshot](https://github.com/Naol86/projectPhase/blob/main/Task-1/demo-2.png)
