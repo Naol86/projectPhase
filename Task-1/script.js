@@ -1,7 +1,5 @@
 const taskList = [];
 
-taskList.forEach((task) => showTasks(task));
-
 const form = document.querySelector('.form');
 const tasks = document.querySelector('.task-list');
 const message = document.querySelector('.message');
@@ -79,7 +77,7 @@ function addTask(e) {
       title: form.task.value,
       description: form.description.value,
     };
-    taskList.push(task);
+    taskList.unshift(task);
     showTasks(task);
     form.task.value = '';
     form.description.value = '';

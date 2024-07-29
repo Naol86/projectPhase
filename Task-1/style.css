@@ -14,7 +14,16 @@ body {
   justify-content: center;
   /* align-items: center; */
   height: 100vh;
-  background: rgb(251, 247, 247);
+  background: rgb(253, 253, 253);
+}
+
+.container {
+  /* border: 0.2rem solid rgb(119, 6, 6); */
+  border-radius: 2rem;
+  padding: 2rem;
+  margin: 2rem;
+  background: #ffffff;
+  box-shadow: 0rem 0rem 2rem rgba(0, 0, 0, 0.3);
 }
 
 .logo {
@@ -24,6 +33,7 @@ body {
   font-size: 3rem;
   margin: 3rem;
   color: rgb(133, 42, 0);
+  text-decoration: underline;
 }
 
 .form {
@@ -66,6 +76,8 @@ body {
   padding: 1rem;
   border-radius: 1rem;
   margin: 1rem;
+  height: 30rem;
+  overflow-y: scroll;
 }
 
 .task-list__logo {
