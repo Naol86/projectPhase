@@ -1,132 +1,189 @@
 * {
   margin: 0;
-  padding: 0;
   box-sizing: border-box;
 }
 
+/* Width and height of the scrollbar */
+::-webkit-scrollbar {
+  width: 1rem;
+  height: 1rem;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 6px;
+}
+
 html {
-  /* making 1rem = 10px */
   font-size: 62.5%;
 }
 
 body {
+  background: #1a1a1a;
   display: flex;
   justify-content: center;
-  /* align-items: center; */
-  height: 100vh;
-  background: rgb(253, 253, 253);
 }
 
 .container {
-  /* border: 0.2rem solid rgb(119, 6, 6); */
+  width: clamp(40rem, 40rem + 10vw, 80rem);
   border-radius: 2rem;
-  padding: 2rem;
   margin: 2rem;
-  background: #ffffff;
-  box-shadow: 0rem 0rem 2rem rgba(0, 0, 0, 0.3);
+  padding: 2rem;
+  box-shadow: 0rem 0rem 1rem 0.5rem rgba(255, 255, 255, 0.05);
+  transition: all 0.3s;
+  /* overflow-y: hidden; */
+}
+
+.tasks {
+  transition: all 0.5s;
+  overflow-y: hidden;
 }
 
 .logo {
-  display: block;
-  text-align: center;
-  font-family: monospace;
-  font-size: 3rem;
+  color: #fff;
+  font-size: 4.5rem;
   margin: 3rem;
-  color: rgb(133, 42, 0);
-  text-decoration: underline;
+  font-weight: bolder;
+  text-align: center;
 }
 
-.form {
+.addTask {
+  transition: all 0.5s;
+  overflow-y: hidden;
+  height: 19rem;
+}
+
+.logo span {
+  color: blue;
+}
+
+.info {
+  color: #dadada;
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 1rem;
+}
+
+.info input {
   width: 100%;
-  align-items: center;
-  justify-content: center;
-  display: flex;
-}
-
-.message {
-  font-size: 1.5rem;
-  font-weight: 600;
-  margin: 1rem;
-  text-align: center;
-}
-
-.success {
-  color: green;
-}
-
-.warning {
-  color: red;
-}
-
-.input {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-}
-
-.title {
-  min-width: 7.2rem;
-  font-size: 1.5rem;
-  font-weight: 600;
-}
-
-.task-list {
-  border: 0.5rem solid rgb(119, 6, 6);
-  padding: 1rem;
   border-radius: 1rem;
-  margin: 1rem;
-  height: 30rem;
-  overflow-y: scroll;
+  padding: 0.7rem;
+  border: none;
+  margin: 0.5rem 0rem;
 }
 
-.task-list__logo {
-  font-size: 2.5rem;
-  font-weight: bold;
-  margin-bottom: 1rem;
-  text-align: center;
-  color: rgb(133, 42, 0);
+input::placeholder {
+  color: #aeaeae;
 }
 
-.task {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0.5rem;
-  border-bottom: 0.1rem solid black;
+input:focus {
+  outline: none;
 }
 
-.new-task {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0.5rem;
-  padding-left: 1rem;
-  border: solid 0.2rem rgb(25, 12, 12);
+input:focus::placeholder {
+  color: #fff;
+}
+
+.add-btn {
+  background: #4caf50;
+  color: #fff;
+  font-size: 1.5rem;
+  font-weight: 700;
+  border: none;
   border-radius: 1rem;
-  margin: 1rem;
+  padding: 0.7rem;
+  width: 100%;
+  margin: 1rem 0rem;
+  cursor: pointer;
 }
 
-.primary {
+.add {
   background: blue;
-  padding: 0.5rem;
-  margin: 0.5rem;
-  border: none;
-  color: white;
-  font-weight: 600;
-  border-radius: 0.5rem;
-}
-
-.secondary {
-  background: red;
-  padding: 0.5rem;
-  margin: 0.5rem;
-  border: none;
-  color: white;
-  font-weight: 600;
-  border-radius: 0.5rem;
 }
 
 .hidden {
+  height: 0;
+  overflow: hidden;
+}
+
+.hidden-btn {
   display: none;
+}
+
+.task-list__title {
+  text-align: center;
+  font-size: 2rem;
+  color: rgb(23, 23, 255);
+  margin: 1rem;
+}
+
+.task {
+  background: #cfcfcf;
+  padding: 1rem;
+  border-radius: 1rem;
+  display: flex;
+  /* justify-content: space-between; */
+  align-items: center;
+  margin: 1rem 0rem;
+}
+
+.task__actions {
+  margin-left: auto;
+}
+
+.done-btn {
+  border: none;
+  border-radius: 1rem;
+  padding: 0.2rem;
+  margin: 0.5rem;
+  cursor: pointer;
+  width: 3.5rem;
+  height: 3.5rem;
+}
+
+.done {
+  fill: #4caf50;
+}
+
+.task__title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 0.5rem;
+}
+
+.task__description {
+  font-size: 1.2rem;
+  margin: 0rem 0.5rem;
+}
+
+.btn {
+  color: #fff;
+  border: none;
+  border-radius: 1rem;
+  padding: 1rem 1.2rem;
+  margin: 0.2rem;
+  cursor: pointer;
+  /* width: 3.5rem;
+  height: 3.5rem; */
+}
+
+.edit {
+  background: #005ad8;
+}
+
+.delete {
+  background: #ff0000;
+}
+
+.update {
+  background: #4caf50;
+}
+
+.cancel {
+  background: #ff0000;
 }

@@ -1,137 +1,175 @@
-const taskList = [];
+const tasks = [];
+const tasksContainer = document.querySelector('.task-list');
 
-const form = document.querySelector('.form');
-const tasks = document.querySelector('.task-list');
-const message = document.querySelector('.message');
+const form = document.querySelector('form');
+// const formBtn = document.querySelector('.form-btn');
+const add = document.querySelector('.add');
 
-let id = 0;
-
-function details(task) {
-  const detail = document.createElement('div');
-
-  const taskTitle = document.createElement('h1');
-  taskTitle.classList.add('task-title');
-  taskTitle.innerHTML = task.title;
-
-  const taskDescription = document.createElement('p');
-  taskDescription.classList.add('task-description');
-  taskDescription.innerHTML = task.description;
-
-  detail.appendChild(taskTitle);
-  detail.appendChild(taskDescription);
-
-  return detail;
-}
-
-function editBtn() {
-  const editButton = document.createElement('button');
-  editButton.classList.add('primary');
-  editButton.innerHTML = 'Edit';
-  editButton.value = id - 1;
-  editButton.addEventListener('click', (e) => {
-    editTask(e.target.value);
-  });
-  return editButton;
-}
-
-function deleteBtn() {
-  const deleteButton = document.createElement('button');
-  deleteButton.value = id - 1;
-  deleteButton.classList.add('secondary');
-  deleteButton.innerHTML = 'Delete';
-  deleteButton.addEventListener('click', (e) => {
-    deleteTask(e.target.value);
-  });
-  return deleteButton;
-}
-
-function showTasks(data) {
-  const task = document.createElement('div');
-  task.classList.add('task');
-  task.id = id;
-  id++;
-
-  task.appendChild(details(data));
-
-  // edit and delete buttons
-  const btn = document.createElement('div');
-
-  btn.appendChild(editBtn());
-  btn.appendChild(deleteBtn());
-
-  task.appendChild(btn);
-  tasks.appendChild(task);
-}
-
-function addTask(e) {
+form.addEventListener('submit', (e) => {
   e.preventDefault();
-  if (!form.task.value) {
-    message.innerHTML = 'Please enter a task';
-    message.classList.remove('success');
-    message.classList.add('warning');
-  } else {
-    message.innerHTML = 'successfully added';
-    message.classList.remove('warning');
-    message.classList.add('success');
-    const task = {
-      title: form.task.value,
-      description: form.description.value,
-    };
-    taskList.unshift(task);
-    showTasks(task);
-    form.task.value = '';
-    form.description.value = '';
+  addTask();
+});
+
+add.addEventListener('click', () => {
+  form.classList.toggle('hidden');
+  add.innerHTML = form.classList.contains('hidden') ? 'Add Task' : 'Close';
+});
+
+function showTask(data, index) {
+  // Create the task div
+  const taskDiv = document.createElement('div');
+  taskDiv.classList.add('task');
+
+  // Create the done button div
+  const doneDiv = document.createElement('div');
+  doneDiv.classList.add('done-btn');
+  if (data.done) {
+    doneDiv.classList.add('done');
   }
+
+  doneDiv.addEventListener('click', () => {
+    doneDiv.classList.toggle('done');
+    tasks.filter((task) => {
+      if (task.title === data.title) {
+        task.done = !task.done;
+      }
+      return task;
+    });
+  });
+
+  // Create the SVG element
+  const svgElement = document.createElementNS(
+    'http://www.w3.org/2000/svg',
+    'svg',
+  );
+  svgElement.setAttribute('viewBox', '0 0 512 512');
+  svgElement.innerHTML = `<path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209L241 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L335 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z"/>`;
+
+  // Append the SVG to the done button div
+  doneDiv.appendChild(svgElement);
+
+  // Create the task info div
+  const taskInfoDiv = document.createElement('div');
+  taskInfoDiv.classList.add('task-info');
+
+  // Create the task title div
+  const taskTitleDiv = document.createElement('div');
+  taskTitleDiv.classList.add('task__title');
+  taskTitleDiv.textContent = data.title;
+
+  // Create the task description div
+  const taskDescriptionDiv = document.createElement('div');
+  taskDescriptionDiv.classList.add('task__description');
+  taskDescriptionDiv.textContent = data.description;
+
+  // Append the title and description to the task info div
+  taskInfoDiv.appendChild(taskTitleDiv);
+  taskInfoDiv.appendChild(taskDescriptionDiv);
+
+  // Create the task actions div
+  const taskActionsDiv = document.createElement('div');
+  taskActionsDiv.classList.add('task__actions');
+
+  // Create the edit button
+  const editButton = document.createElement('button');
+  editButton.classList.add('edit', 'btn');
+  editButton.textContent = 'Edit';
+  editButton.value = index;
+
+  editButton.addEventListener('click', (e) => {
+    editTask(e);
+  });
+
+  // Create the delete button
+  const deleteButton = document.createElement('button');
+  deleteButton.classList.add('delete', 'btn');
+  deleteButton.textContent = 'Delete';
+  deleteButton.value = index;
+
+  deleteButton.addEventListener('click', (e) => {
+    deleteTask(e);
+  });
+
+  // Append the buttons to the task actions div
+  taskActionsDiv.appendChild(editButton);
+  taskActionsDiv.appendChild(deleteButton);
+
+  // Append the done button, task info, and task actions to the task div
+  taskDiv.appendChild(doneDiv);
+  taskDiv.appendChild(taskInfoDiv);
+  taskDiv.appendChild(taskActionsDiv);
+
+  // Append the task div to the main task container
+  tasksContainer.appendChild(taskDiv);
 }
 
-function deleteTask(id) {
-  document.getElementById(id).remove();
+function render() {
+  tasksContainer.innerHTML = '';
+  tasks.map((task, index) => showTask(task, index));
 }
 
-function editTask(id) {
-  const taskToEdit = document.getElementById(id);
-  form.task.value = taskToEdit.children[0].children[0].innerHTML;
-  form.description.value = taskToEdit.children[0].children[1].innerHTML;
+function addTask() {
+  const title = form.title.value;
+  if (!title) {
+    alert('Please enter a title');
+    return;
+  }
+  const description = form.description.value;
+  const done = false;
+  const task = { title, description, done: false };
+  tasks.unshift(task);
+  form.title.value = '';
+  form.description.value = '';
+  render();
+}
 
-  document.querySelector('.task-list').classList.add('hidden');
-  document.querySelector('.primary').classList.add('hidden');
+function deleteTask(e) {
+  const index = e.target.value;
+  tasks.splice(index, 1);
+  render();
+}
+
+function editTask(e) {
+  const index = e.target.value;
+  const task = tasks[index];
+  document.querySelector('#title').value = task.title;
+  document.querySelector('#description').value = task.description;
+  tasksContainer.classList.add('hidden');
+  document.querySelector('.add-btn').classList.add('hidden-btn');
+
+  document.querySelector('.add').classList.add('hidden-btn');
 
   const update = document.createElement('button');
-  update.classList.add('primary');
-  update.innerHTML = 'Update';
-  form.appendChild(update);
-  update.addEventListener('click', () => {
-    if (!form.task.value) {
-      message.innerHTML = 'Please enter a task';
-      message.classList.remove('success');
-      message.classList.add('warning');
-    } else {
-      message.innerHTML = 'successfully updated';
-      message.classList.remove('warning');
-      message.classList.add('success');
-      taskToEdit.children[0].children[0].innerHTML = form.task.value;
-      taskToEdit.children[0].children[1].innerHTML = form.description.value;
-      form.task.value = '';
-      form.description.value = '';
-      document.querySelector('.task-list').classList.remove('hidden');
-      document.querySelector('.primary').classList.remove('hidden');
-      update.remove();
-      cancel.remove();
-    }
-  });
+  update.classList.add('update', 'btn');
+  update.textContent = 'Update';
 
   const cancel = document.createElement('button');
-  cancel.classList.add('secondary');
-  cancel.innerHTML = 'Cancel';
-  form.appendChild(cancel);
+  cancel.classList.add('cancel', 'btn');
+  cancel.textContent = 'Cancel';
+
+  const formBtn = document.querySelector('.form-btn');
+  formBtn.appendChild(update);
+  formBtn.appendChild(cancel);
+
   cancel.addEventListener('click', () => {
-    form.task.value = '';
+    tasksContainer.classList.remove('hidden');
+    document.querySelector('.add-btn').classList.remove('hidden-btn');
+    document.querySelector('.add').classList.remove('hidden-btn');
+    formBtn.removeChild(update);
+    formBtn.removeChild(cancel);
+  });
+
+  update.addEventListener('click', () => {
+    const title = document.querySelector('#title').value;
+    const description = document.querySelector('#description').value;
+    tasks[index] = { title, description, done: false };
+    render();
+    tasksContainer.classList.remove('hidden');
+    document.querySelector('.add-btn').classList.remove('hidden-btn');
+    document.querySelector('.add').classList.remove('hidden-btn');
+    formBtn.removeChild(update);
+    formBtn.removeChild(cancel);
+    form.title.value = '';
     form.description.value = '';
-    document.querySelector('.task-list').classList.remove('hidden');
-    document.querySelector('.primary').classList.remove('hidden');
-    update.remove();
-    cancel.remove();
   });
 }
-
-form.addEventListener('submit', addTask);

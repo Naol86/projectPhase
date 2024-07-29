@@ -3,44 +3,64 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Todo List</title>
     <link rel="stylesheet" href="./style.css" />
+    <title>ToDo list</title>
   </head>
   <body>
     <div class="container">
-      <div class="logo">
-        <h1>Todo List</h1>
-      </div>
-      <form onsubmit="addTask" class="form">
-        <div>
-          <p class="message"></p>
-          <div class="input">
-            <label for="task" class="title">Title</label>
-            <input
-              type="text"
-              name="task"
-              id="task"
-              placeholder="Task Title"
-              class="new-task"
-            />
-          </div>
-          <div class="input">
-            <label for="description" class="title">Description</label>
-            <input
-              type="text"
-              name="description"
-              id="description"
-              placeholder="Task Description"
-              class="new-task"
-            />
-          </div>
-        </div>
+      <div class="logo">TODO <span>List</span></div>
 
-        <button type="submit" class="primary" id="addBtn">Add Task</button>
+      <form class="addTask hidden">
+        <div class="info">
+          <label for="title">Title</label>
+          <input
+            type="text"
+            id="title"
+            name="title"
+            placeholder="Enter task title"
+          />
+        </div>
+        <div class="info">
+          <label for="decription"> Description </label>
+          <input
+            type="text"
+            id="description"
+            name="description"
+            placeholder="Enter task description"
+          />
+        </div>
+        <div class="form-btn info">
+          <button class="add-btn">submit</button>
+        </div>
       </form>
+      <div class="info">
+        <button class="add-btn add">Add Task</button>
+      </div>
 
       <div class="task-list">
-        <h2 class="task-list__logo">Task List</h2>
+        <div class="task-list__title">
+          <h2>Task List</h2>
+        </div>
+        <div class="tasks" id="tasks">
+          <!-- <div class="task">
+            <div class="done done-btn">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                <path
+                  d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209L241 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L335 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z"
+                />
+              </svg>
+            </div>
+
+            <div class="task-info">
+              <div class="task__title">Task 1</div>
+              <div class="task__description">Description 1</div>
+            </div>
+            <div class="task__actions">
+              <button class="edit btn">Edit</button>
+              <button class="delete btn">Delete</button>
+            </div>
+          </div> -->
+        </div>
       </div>
     </div>
 
