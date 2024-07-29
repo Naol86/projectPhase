@@ -1,6 +1,6 @@
 # Todo List
 
-A simple Todo list website using html, css and javascript
+A simple Todo list website using html, css and Typescript
 
 ## Functionality
 

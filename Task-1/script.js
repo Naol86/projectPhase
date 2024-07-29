@@ -1,7 +1,7 @@
 const tasks = [];
 const tasksContainer = document.querySelector('.task-list');
 
-const form = document.querySelector('form');
+const form = document.querySelector('.addTask');
 // const formBtn = document.querySelector('.form-btn');
 const add = document.querySelector('.add');
 
@@ -157,6 +157,8 @@ function editTask(e) {
     document.querySelector('.add').classList.remove('hidden-btn');
     formBtn.removeChild(update);
     formBtn.removeChild(cancel);
+    form.title.value = '';
+    form.description.value = '';
   });
 
   update.addEventListener('click', () => {

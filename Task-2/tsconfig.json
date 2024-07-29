@@ -1,0 +1,7 @@
+{
+  "compilerOptions": {
+    "allowJs": true
+    // Other options you might have
+  },
+  "include": ["script.ts", "script.js"]
+}
