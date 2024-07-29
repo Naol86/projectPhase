@@ -16,27 +16,27 @@ A simple Todo list website using HTML, CSS, and TypeScript.
 
 ### Landing Page
 
-![Landing Page](https://github.com/Naol86/projectPhase/blob/main/Task-1/images/demo-1.png)
+![Landing Page](https://github.com/Naol86/projectPhase/blob/main/Task-2/images/demo-1.png)
 _Landing page when user enters the Todo list_
 
 ### Add New Tasks
 
-![Add Task](https://github.com/Naol86/projectPhase/blob/main/Task-1/images/demo-2.png)
+![Add Task](https://github.com/Naol86/projectPhase/blob/main/Task-2/images/demo-2.png)
 _Add new tasks by clicking on "Add Task"_
 
 ### View Added Tasks
 
-![View Tasks](https://github.com/Naol86/projectPhase/blob/main/Task-1/images/demo-3.png)
+![View Tasks](https://github.com/Naol86/projectPhase/blob/main/Task-2/images/demo-3.png)
 _View tasks you added before and mark them as done by clicking on the right icon_
 
 ### Task Status
 
-![Task Status](https://github.com/Naol86/projectPhase/blob/main/Task-1/images/demo-4.png)
+![Task Status](https://github.com/Naol86/projectPhase/blob/main/Task-2/images/demo-4.png)
 _See tasks that are finished or not based on the color_
 
 ### Edit Tasks
 
-![Edit Tasks](https://github.com/Naol86/projectPhase/blob/main/Task-1/images/demo-5.png)
+![Edit Tasks](https://github.com/Naol86/projectPhase/blob/main/Task-2/images/demo-5.png)
 _You can edit tasks and save them_
 
 ## Getting Started
@@ -57,7 +57,7 @@ _You can edit tasks and save them_
 2. Navigate to the project directory:
 
    ```bash
-   cd projectPhase/Task-1
+   cd projectPhase/Task-2
    ```
 
 3. Install the necessary dependencies:
