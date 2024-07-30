@@ -62,5 +62,5 @@ _To remove a task, the user is prompted to enter the ID of the task they wish to
 
 #### Editing a Task
 
-![Editing a Task](https://github.com/Naol86/projectPhase/blob/main/Task-2b/images/demo-5.png)
+![Editing a Task](https://github.com/Naol86/projectPhase/blob/main/Task-2b/images/demo-6.png)
 _When editing a task, the user is prompted to enter the ID of the task they want to edit and the new title. The task's title is updated, and a confirmation message is shown._
