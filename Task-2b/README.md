@@ -14,11 +14,11 @@ This is a simple console-based TODO list application built using Node.js. The ap
 
 1. **Clone the repository**:
    ```sh
-   git clone https://github.com/your-username/todo-list.git
+   git clone https://github.com/Naol86/projectPhase.git
    ```
 2. **Navigate to the project directory**:
    ```sh
-   cd todo-list
+   cd Task-2b/dist
    ```
 3. **Install the dependencies**:
    ```sh
@@ -30,13 +30,11 @@ This is a simple console-based TODO list application built using Node.js. The ap
 1. **Run the application**:
 
    ```sh
-   node app.js
+   node index.js
    ```
 
 2. **Follow the on-screen instructions**:
    - Enter your choice by typing the corresponding number and pressing Enter.
-
-### Code Explanation
 
 ### Demo
 
@@ -44,33 +42,25 @@ Below are some screenshots demonstrating the usage of the TODO list application.
 
 #### Welcome Screen
 
-![Welcome Screen](images/welcome_screen.png)
+![Welcome Screen](https://github.com/Naol86/projectPhase/blob/main/Task-2b/images/demo-2.png)
+_The welcome screen presents the main menu with options to add, view, remove, edit tasks, or exit the application._
 
 #### Adding a Task
 
-![Adding a Task](images/adding_task.png)
+![Adding a Task](https://github.com/Naol86/projectPhase/blob/main/Task-2b/images/demo-1.png)
+_After selecting the option to add a task, the user is prompted to enter the task title. The task is then added to the list and confirmed._
 
 #### Viewing Tasks
 
-![Viewing Tasks](images/viewing_tasks.png)
+![Viewing Tasks](https://github.com/Naol86/projectPhase/blob/main/Task-2b/images/demo-3.png)
+_The task list is displayed with each task's ID and title. This allows the user to see all the tasks currently in the list._
 
 #### Removing a Task
 
-![Removing a Task](images/removing_task.png)
+![Removing a Task](https://github.com/Naol86/projectPhase/blob/main/Task-2b/images/demo-4.png)
+_To remove a task, the user is prompted to enter the ID of the task they wish to remove. The task is then removed from the list, and a confirmation message is displayed._
 
 #### Editing a Task
 
-![Editing a Task](images/editing_task.png)
-
-### License
-
-This project is licensed under the MIT License.
-
----
-
-### Notes
-
-- Replace `your-username` with your actual GitHub username in the clone command.
-- Ensure that the images in the `images` folder match the demo image paths provided in the readme. Adjust the paths if necessary.
-
-By following this guide, you should be able to understand the functionality of the TODO list application, install it, and use it effectively.
+![Editing a Task](https://github.com/Naol86/projectPhase/blob/main/Task-2b/images/demo-5.png)
+_When editing a task, the user is prompted to enter the ID of the task they want to edit and the new title. The task's title is updated, and a confirmation message is shown._
