@@ -18,7 +18,7 @@ This is a React-based TODO list application with persistent data storage using F
    ```
 2. **Navigate to the Project Directory**:
    ```sh
-   cd Task-2b
+   cd task-4
    ```
 3. **Install the Dependencies**:
 
@@ -53,25 +53,25 @@ Below are some screenshots demonstrating the usage of the TODO list application.
 
 ### Welcome Screen
 
-![Welcome Screen](https://github.com/Naol86/projectPhase/blob/main/Task-2b/images/demo-2.png)
+![Welcome Screen](https://github.com/Naol86/projectPhase/blob/main/task-4/images/demo-1.png)
 _The welcome screen presents the main menu with options to add, view, remove, edit tasks, or exit the application._
 
 ### Adding a Task
 
-![Adding a Task](https://github.com/Naol86/projectPhase/blob/main/Task-2b/images/demo-1.png)
+![Adding a Task](https://github.com/Naol86/projectPhase/blob/main/task-4/images/demo-2.png)
 _After selecting the option to add a task, the user is prompted to enter the task title. The task is then added to Firestore and confirmed._
 
 ### Viewing Tasks
 
-![Viewing Tasks](https://github.com/Naol86/projectPhase/blob/main/Task-2b/images/demo-3.png)
+![Viewing Tasks](https://github.com/Naol86/projectPhase/blob/main/task-4/images/demo-3.png)
 _The task list is displayed with each task's ID and title, fetched from Firestore._
 
 ### Removing a Task
 
-![Removing a Task](https://github.com/Naol86/projectPhase/blob/main/Task-2b/images/demo-4.png)
+![Removing a Task](https://github.com/Naol86/projectPhase/blob/main/task-4/images/demo-4.png)
 _To remove a task, the user clicks the "Delete" button next to the task. The task is then removed from Firestore, and a confirmation message is displayed._
 
 ### Editing a Task
 
-![Editing a Task](https://github.com/Naol86/projectPhase/blob/main/Task-2b/images/demo-6.png)
-_When editing a task, the user is prompted to enter the new title. The task's title is updated in Firestore, and a confirmation message is shown._
+![Editing a Task](https://github.com/Naol86/projectPhase/blob/main/task-4/images/demo-5.png)
+_When editing a task, the user is edit task in place . The task's title is updated in Firestore, and a confirmation message is shown._
