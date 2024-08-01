@@ -1,8 +1,4 @@
-export type Task = {
-  id: string;
-  title: string;
-  completed: boolean;
-};
+import { Task } from '../types/types';
 
 type Action =
   | { type: 'task/ADD_ALL'; payload: Task[] }

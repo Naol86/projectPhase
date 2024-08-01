@@ -1,12 +1,9 @@
 import React from 'react';
-import { Task } from '../../reducer/TaskReducer';
-import { useTaskContext } from '../../context/taskContext';
 
-export default function Test({ tasks }: { tasks: Task[] }) {
-  const { dispatch } = useTaskContext();
-  tasks.forEach((task) => {
-    console.log(task);
-    dispatch({ type: 'task/ADD_TASK', payload: task });
-  });
-  return <></>;
+export default function Test() {
+  return (
+    <div className='absolute top-0 left-0 w-screen h-screen bg-blue-300 backdrop-blur-md'>
+      Test
+    </div>
+  );
 }

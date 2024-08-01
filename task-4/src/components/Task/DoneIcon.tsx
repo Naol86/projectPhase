@@ -1,16 +1,19 @@
 import React from 'react';
 import { useTaskContext } from '../../context/taskContext';
+import { toggleDone } from '../../services/toggleDone';
 
 export default function DoneIcon({
   completed,
   id,
 }: {
   completed: boolean;
-  id: number;
+  id: string;
 }): JSX.Element {
   const { dispatch } = useTaskContext();
 
   const handleClick = () => {
+    console.log(id);
+    toggleDone(id);
     dispatch({ type: 'task/TOGGLE_TASK', payload: id });
   };
 

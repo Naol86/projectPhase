@@ -1,8 +1,8 @@
 import React from 'react';
 import Menu from '../Menu/Menu';
-import TasksList from '../TasksList/TasksList';
 import Search from '../Search/Search';
 import { useMenuContext } from '../../context/menuContext';
+import Category from '../Category/Category';
 
 export default function SideBar() {
   const { sideBar } = useMenuContext();
@@ -16,7 +16,7 @@ export default function SideBar() {
     >
       <Menu />
       <Search />
-      <TasksList />
+      <Category />
     </div>
   );
 }

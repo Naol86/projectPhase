@@ -1,5 +1,5 @@
 import { createContext, useContext } from 'react';
-import { Task } from '../reducer/TaskReducer';
+import { Task } from '../types/types';
 
 const TaskContext = createContext<
   { tasks: Task[]; dispatch: React.Dispatch<any> } | undefined

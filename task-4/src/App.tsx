@@ -1,14 +1,17 @@
 import Main from './components/Main/Main';
 import SideBar from './components/SideBar/SideBar';
 import TaskContext from './context/taskContext';
-import { useEffect, useReducer } from 'react';
-import TaskReducer, { Task } from './reducer/TaskReducer';
+import { useEffect, useReducer, useState } from 'react';
+import TaskReducer from './reducer/TaskReducer';
 import getTodo from './services/getDocs';
 import MenuContext from './context/menuContext';
 import MenuReducer from './reducer/MenuReducer';
+import { Task } from './types/types';
+import Test from './components/Test/Test';
 
 function App() {
   const initialTasks: Task[] = [];
+  const [edit, setEdit] = useState(false);
   const [tasks, dispatch] = useReducer(TaskReducer, initialTasks);
   const [sideBar, sideBarDispatch] = useReducer(MenuReducer, {
     sideBar: false,
@@ -23,6 +26,10 @@ function App() {
     });
   }, []);
 
+  const handleEdit = () => {
+    setEdit((pre) => !pre);
+  };
+
   return (
     <TaskContext.Provider value={{ tasks, dispatch }}>
       <MenuContext.Provider value={{ sideBar, sideBarDispatch }}>
@@ -30,6 +37,8 @@ function App() {
           <SideBar />
           <Main />
         </div>
+
+        {edit && <Test />}
       </MenuContext.Provider>
     </TaskContext.Provider>
   );

@@ -1,7 +1,6 @@
 import { doc, updateDoc } from 'firebase/firestore';
-import { Task } from '../reducer/TaskReducer';
 import db from '../database/connect';
 
-export const updateTask = async (id: string, task: Task) => {
+export const updateTask = async (id: string, task: any) => {
   await updateDoc(doc(db, 'todo', id), task);
 };

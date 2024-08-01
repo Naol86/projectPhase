@@ -1,7 +1,7 @@
 // services/taskService.ts
 import { addDoc, collection } from 'firebase/firestore';
 import db from '../database/connect';
-import { Task } from '../reducer/TaskReducer';
+import { Task } from '../types/types';
 
 export const addTask = async (task: Task) => {
   try {
