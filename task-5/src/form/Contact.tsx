@@ -23,7 +23,7 @@ export default function Contact() {
       className='flex flex-wrap justify-center'
       noValidate
     >
-      <div className='w-[35vw] h-screen p-2 mx-2 font-mono'>
+      <div className='h-screen p-2 mx-2 font-mono '>
         <div className='w-full h-full p-5 rounded-md opacity-90 bg-slate-400'>
           <h1 className='w-full my-3 text-3xl font-bold text-center text-slate-800'>
             Contact Form
