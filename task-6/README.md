@@ -57,7 +57,7 @@ These components are located in the `components` directory and can be reused acr
 
 **Job Posting Dashboard:**
 
-![Dashboard](./demo/demo-1.png)
+![Dashboard](./demo/demo-1a.png)
 
 **Job Posting Cards:**
 
