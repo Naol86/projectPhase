@@ -8,7 +8,7 @@ function JobCard({ data }: { data: JobPost }) {
     <div className='flex py-4 px-8 border-2 rounded-[30px] space-x-2 my-3'>
       <div className='w-[50px] h-[50px] flex-shrink-0 my-1'>
         <Image
-          src={'/assets/image.png'}
+          src={`/assets${data.image}`}
           alt='company logo'
           width={50}
           height={50}

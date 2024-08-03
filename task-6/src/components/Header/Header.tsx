@@ -1,13 +1,7 @@
 'use client';
-import React from 'react';
-import Select from 'react-select';
+import SelectSortedBy from '../SelectSortedBy/SelectSortedBy';
 
 export default function Header() {
-  const options = [
-    { value: 'most-relevant', label: 'Most relevant' },
-    { value: 'newest', label: 'Newest' },
-    { value: 'highest-rated', label: 'Highest Rated' },
-  ];
   return (
     <div className='flex items-center justify-between pr-2 my-5 mb-10'>
       <div>
@@ -40,7 +34,7 @@ export default function Header() {
             Most relevant
           </option>
         </select> */}
-        <Select options={options} className='h-10 m-1 text-sm outline-none w-52' />
+        <SelectSortedBy />
       </div>
     </div>
   );

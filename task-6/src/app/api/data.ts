@@ -52,9 +52,9 @@ const data = {
         age: 'Any',
         gender: 'Any',
         traits: [
-          'Strong organizational skills to juggle multiple tasks within the constraints of timelines and budgets',
-          'Ability to work and thrive in a fast-paced environment, learn rapidly, and master diverse web technologies and techniques',
-          'Team player with a positive attitude and good interpersonal skills',
+          'Strong organizational: skills to juggle multiple tasks within the constraints of timelines and budgets',
+          'Ability to work and thrive: in a fast-paced environment, learn rapidly, and master diverse web technologies and techniques',
+          'Team player: with a positive attitude and good interpersonal skills',
         ],
       },
       when_where:
@@ -69,9 +69,10 @@ const data = {
         required_skills: ['HTML', 'CSS', 'JavaScript', 'PHP'],
       },
       company: 'Tech Innovators',
-      image: '/job1.png',
+      image: '/job2.png',
     },
     {
+      id: '3',
       title: 'Graphic designer',
       description:
         'As a Graphic Designer, you will create visual concepts, using computer software or by hand, to communicate ideas that inspire, inform, and captivate consumers. You will develop the overall layout and production design for various applications such as advertisements, brochures, magazines, and corporate reports.',
@@ -86,10 +87,10 @@ const data = {
         age: 'Any',
         gender: 'Any',
         traits: [
-          'A keen eye for aesthetics and details',
-          'Excellent communication skills',
-          'Ability to work methodically and meet deadlines',
-          'Passionate about creating stunning visuals and innovative designs',
+          'A keen eye: for aesthetics and details',
+          'Excellent communication: skills',
+          'Ability to work methodically: and meet deadlines',
+          'Passionate: about creating stunning visuals and innovative designs',
         ],
       },
       when_where:
@@ -109,10 +110,10 @@ const data = {
         ],
       },
       company: 'Creative Designs Co.',
-      image: '/job1.png',
+      image: '/job3.png',
     },
     {
-      id: '3',
+      id: '4',
       title: 'Data analyst',
       description:
         'As a Data Analyst, you will be responsible for analyzing data sets to identify trends, patterns, and insights that can help inform business decisions. You will work closely with different departments to gather and interpret data, create reports, and provide recommendations based on your findings.',
@@ -127,10 +128,10 @@ const data = {
         age: 'Any',
         gender: 'Any',
         traits: [
-          'Strong analytical skills with the ability to collect, organize, analyze, and disseminate significant amounts of information',
-          'Technical expertise regarding data models, database design development, data mining, and segmentation techniques',
-          'Excellent written and verbal communication skills',
-          'Ability to work independently and as part of a team',
+          'Strong analytical skills: with the ability to collect, organize, analyze, and disseminate significant amounts of information',
+          'Technical expertise: regarding data models, database design development, data mining, and segmentation techniques',
+          'Excellent written: and verbal communication skills',
+          'Ability to work independently: and as part of a team',
         ],
       },
       when_where:
@@ -148,7 +149,7 @@ const data = {
       image: '/job1.png',
     },
     {
-      id: '4',
+      id: '5',
       title: 'Customer support specialist',
       description:
         'As a Customer Support Specialist, you will provide product/services information and resolve any emerging problems that our customers might face with accuracy and efficiency. You will be patient, empathetic, and passionately communicative.',
@@ -164,10 +165,10 @@ const data = {
         gender: 'Any',
 
         traits: [
-          'Strong phone contact handling skills and active listening',
-          'Customer orientation and ability to adapt/respond to different types of characters',
-          'Excellent communication and presentation skills',
-          'Ability to multi-task, prioritize, and manage time effectively',
+          'Strong phone contact: handling skills and active listening',
+          'Customer orientation: and ability to adapt/respond to different types of characters',
+          'Excellent communication: and presentation skills',
+          'Ability to multi-task:, prioritize, and manage time effectively',
         ],
       },
       when_where:
@@ -187,7 +188,7 @@ const data = {
         ],
       },
       company: 'Customer Care Ltd.',
-      image: '/job1.png',
+      image: '/job4.png',
     },
   ],
 };
