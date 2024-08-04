@@ -80,4 +80,4 @@ Screencast from 08-02-2024 11:35:00 PM.webm](https://raw.githubusercontent.com/N
 - React Icons
 
   [
-  Screencast from 08-02-2024 11:35:00 PM.webm](https://github.com/user-attachments/assets/6002eb7e-d3e6-4d83-9352-659d6c61e512)
+  Screencast from 08-02-2024 11:35:00 PM.webm](https://raw.githubusercontent.com/Naol86/projectPhase/main/task-7b/public/demo.gif)
