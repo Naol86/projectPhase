@@ -2,8 +2,11 @@ import { JobPost } from '@/type/type';
 import React from 'react';
 
 export default function Detail({ data }: { data: JobPost }) {
+  // console.log('log res');
+  // const responsibilities = data.responsibilities.split('\n');
+  // console.log(responsibilities, 'is here');
   return (
-    <div className='flex-shrink max-w-4xl my-10'>
+    <div className='flex-shrink max-w-3xl my-10'>
       <div className='my-3'>
         <h1>Description</h1>
         <h3 className='py-2 font-medium text-justify text-md text-slate-800 font-epilogue'>
@@ -13,7 +16,7 @@ export default function Detail({ data }: { data: JobPost }) {
       <div className='my-3'>
         <h1 className='mb-3'>Responsibility</h1>
         <ul>
-          {data.responsibilities.map((ele, index) => (
+          {data.responsibilities.split('\n').map((ele, index) => (
             <li key={index} className='flex my-1.5 text-slate-800'>
               <svg
                 width='21'
@@ -52,17 +55,8 @@ export default function Detail({ data }: { data: JobPost }) {
       <div className='my-3'>
         <h1 className='my-5'>Ideal Candidate we want</h1>
         <ul>
-          <li className='items-center my-1 space-x-1 text-slate-800 decoration-clone'>
-            <svg
-              xmlns='http://www.w3.org/2000/svg'
-              viewBox='0 0 512 512'
-              className='inline-block w-1 h-1 mr-1'
-            >
-              <path d='M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512z' />
-            </svg>
-            {`${data.ideal_candidate.age}-${data.ideal_candidate.gender} Years old -${data.title}`}
-          </li>
-          {data.ideal_candidate.traits.map((ele, index) => (
+          {data.idealCandidate}
+          {/* {data.ideal_candidate.traits.map((ele, index) => (
             <li key={index} className='items-center my-1 space-x-1 text-slate-800 decoration-clone'>
               <svg
                 xmlns='http://www.w3.org/2000/svg'
@@ -74,7 +68,7 @@ export default function Detail({ data }: { data: JobPost }) {
               <span className='font-semibold'>{ele.slice(0, ele.indexOf(':'))}</span>
               {ele.slice(ele.indexOf(':'))}
             </li>
-          ))}
+          ))} */}
         </ul>
       </div>
       <div className='my-5'>
@@ -109,7 +103,7 @@ export default function Detail({ data }: { data: JobPost }) {
           />
         </svg>
 
-        <h3 className='inline-block text-slate-800'>{data.when_where}</h3>
+        <h3 className='inline-block text-slate-800'>{data.whenAndWhere}</h3>
       </div>
     </div>
   );
