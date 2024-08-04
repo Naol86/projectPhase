@@ -69,4 +69,4 @@ The project uses Redux Toolkit Query to handle data fetching from the backend. I
 
 **Job Posting Dashboard:**
 
-[![Dashboard Video](http://img.youtube.com/vi/demo/0.jpg)](./demo.webm)
+[![Dashboard Video](http://img.youtube.com/vi/demo/0.jpg)](./public/demo.webm)
