@@ -1,5 +1,5 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
-import { JobPosting } from '../../type/type';
+import { JobPostById, JobPosting } from '../../type/type';
 
 export const apiSlice = createApi({
   reducerPath: 'api',
@@ -8,7 +8,7 @@ export const apiSlice = createApi({
     getJobPost: builder.query<JobPosting, void>({
       query: () => 'search',
     }),
-    getJobPostById: builder.query<JobPosting, string>({
+    getJobPostById: builder.query<JobPostById, string>({
       query: (id) => `${id}`,
     }),
   }),

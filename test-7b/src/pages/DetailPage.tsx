@@ -1,22 +1,22 @@
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import Detail from '../components/Detail/Detail';
 import About from '../components/About/About';
 import { useGetJobPostByIdQuery } from '../features/api/apiSlice';
-import { JobPost } from '../type/type';
+import DetailPageSkeleton from '@/components/Skeleton/DetailPageSkeleton';
 
 export default function DetailPage() {
+  const navigator = useNavigate();
   const params = useParams();
-  console.log(params);
-  const { data } = useGetJobPostByIdQuery(params.id ?? '');
-  const lis: JobPost = data ? data?.data : {};
-  console.log(lis);
-  if (!data) return <div>Loading...</div>;
+  const { data, isLoading, error } = useGetJobPostByIdQuery(params.id ?? '');
+
+  if (isLoading) return <DetailPageSkeleton />;
+  if (error || !data?.success) navigator('/not-found');
   return (
-    <div className='flex justify-around'>
+    <div className='flex justify-around mx-5'>
       {data && (
         <>
-          <Detail data={lis} />
-          <About data={lis} />
+          <Detail data={data.data} />
+          <About data={data.data} />
         </>
       )}
     </div>

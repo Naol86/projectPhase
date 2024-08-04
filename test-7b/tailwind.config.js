@@ -62,9 +62,6 @@ export default {
           DEFAULT: 'hsl(var(--card))',
           foreground: 'hsl(var(--card-foreground))',
         },
-        // fontFamily: {
-        //   epilogue: ['Epilogue', 'sans-serif'],
-        // },
       },
       borderRadius: {
         lg: `var(--radius)`,
@@ -72,8 +69,8 @@ export default {
         sm: 'calc(var(--radius) - 4px)',
       },
       fontFamily: {
-        // sans: ['var(--font-sans)', ...fontFamily.sans],
         epilogue: ['Epilogue', 'sans-serif'],
+        poppins: ['Poppins', 'sans-serif'],
       },
       keyframes: {
         'accordion-down': {

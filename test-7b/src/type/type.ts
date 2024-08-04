@@ -37,3 +37,11 @@ export interface JobPosting {
   errors: string[];
   count: number;
 }
+
+export interface JobPostById {
+  success: boolean;
+  message: string;
+  data: JobPost;
+  errors: string[];
+  count: number;
+}

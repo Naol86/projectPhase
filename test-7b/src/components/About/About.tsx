@@ -1,6 +1,7 @@
 import Button from '../Buttons/Button';
 import Skill from '../Skill/Skill';
 import { JobPost } from '../../type/type';
+import DateComponent from '../Date/Date';
 
 export default function About({ data }: { data: JobPost }) {
   return (
@@ -20,14 +21,14 @@ export default function About({ data }: { data: JobPost }) {
             <path
               d='M31.5 22C31.5 26.9706 27.4706 31 22.5 31C17.5294 31 13.5 26.9706 13.5 22C13.5 17.0294 17.5294 13 22.5 13M22.5 13C23.9368 13 25.295 13.3367 26.5 13.9355C26.5 13.9355 25.3085 13.4068 24.5 13.223C23.7337 13.0488 22.5 13 22.5 13ZM22.5 19V25M25.5 22H19.5'
               stroke='#26A4FF'
-              stroke-width='2'
-              stroke-linecap='round'
-              stroke-linejoin='round'
+              strokeWidth='2'
+              strokeLinecap='round'
+              strokeLinejoin='round'
             />
           </svg>
           <div className='mx-1'>
             <h2 className='text-slate-600'>Posted On</h2>
-            <h3 className='text-sm text-slate-900'>{data.datePosted}</h3>
+            <DateComponent date={data.datePosted} />
           </div>
         </div>
         <div className='flex items-center my-3.5'>
@@ -47,7 +48,7 @@ export default function About({ data }: { data: JobPost }) {
           </svg>
           <div className='mx-1'>
             <h2 className='text-slate-600'>Deadline</h2>
-            <h3 className='text-sm text-slate-900'>{data.deadline}</h3>
+            <DateComponent date={data.deadline} />
           </div>
         </div>
         <div className='flex items-center my-3.5'>
@@ -61,22 +62,22 @@ export default function About({ data }: { data: JobPost }) {
             <rect x='1' y='0.5' width='43' height='43' rx='21.5' fill='white' />
             <rect x='1' y='0.5' width='43' height='43' rx='21.5' stroke='#D6DDEB' />
             <path
-              fill-rule='evenodd'
-              clip-rule='evenodd'
+              fillRule='evenodd'
+              clipRule='evenodd'
               d='M25 20.5005C25 19.1192 23.8808 18 22.5005 18C21.1192 18 20 19.1192 20 20.5005C20 21.8808 21.1192 23 22.5005 23C23.8808 23 25 21.8808 25 20.5005Z'
               stroke='#26A4FF'
-              stroke-width='2'
-              stroke-linecap='round'
-              stroke-linejoin='round'
+              strokeWidth='2'
+              strokeLinecap='round'
+              strokeLinejoin='round'
             />
             <path
-              fill-rule='evenodd'
-              clip-rule='evenodd'
+              fillRule='evenodd'
+              clipRule='evenodd'
               d='M22.4995 31C21.301 31 15 25.8984 15 20.5633C15 16.3866 18.3571 13 22.4995 13C26.6419 13 30 16.3866 30 20.5633C30 25.8984 23.698 31 22.4995 31Z'
               stroke='#26A4FF'
-              stroke-width='2'
-              stroke-linecap='round'
-              stroke-linejoin='round'
+              strokeWidth='2'
+              strokeLinecap='round'
+              strokeLinejoin='round'
             />
           </svg>
           <div className='mx-1'>
@@ -95,27 +96,27 @@ export default function About({ data }: { data: JobPost }) {
             <rect x='1' y='0.5' width='43' height='43' rx='21.5' fill='white' />
             <rect x='1' y='0.5' width='43' height='43' rx='21.5' stroke='#D6DDEB' />
             <path
-              fill-rule='evenodd'
-              clip-rule='evenodd'
+              fillRule='evenodd'
+              clipRule='evenodd'
               d='M25 20.5005C25 19.1192 23.8808 18 22.5005 18C21.1192 18 20 19.1192 20 20.5005C20 21.8808 21.1192 23 22.5005 23C23.8808 23 25 21.8808 25 20.5005Z'
               stroke='#26A4FF'
-              stroke-width='2'
-              stroke-linecap='round'
-              stroke-linejoin='round'
+              strokeWidth='2'
+              strokeLinecap='round'
+              strokeLinejoin='round'
             />
             <path
-              fill-rule='evenodd'
-              clip-rule='evenodd'
+              fillRule='evenodd'
+              clipRule='evenodd'
               d='M22.4995 31C21.301 31 15 25.8984 15 20.5633C15 16.3866 18.3571 13 22.4995 13C26.6419 13 30 16.3866 30 20.5633C30 25.8984 23.698 31 22.4995 31Z'
               stroke='#26A4FF'
-              stroke-width='2'
-              stroke-linecap='round'
-              stroke-linejoin='round'
+              strokeWidth='2'
+              strokeLinecap='round'
+              strokeLinejoin='round'
             />
           </svg>
           <div className='mx-1'>
             <h2 className='text-slate-600'>Started Date</h2>
-            <h3 className='text-sm text-slate-900'>{data.startDate}</h3>
+            <DateComponent date={data.startDate} />
           </div>
         </div>
 
@@ -132,21 +133,21 @@ export default function About({ data }: { data: JobPost }) {
             <path
               d='M17.25 13V15.25M27.75 13V15.25M13.5 28.75V17.5C13.5 16.2574 14.5074 15.25 15.75 15.25H29.25C30.4926 15.25 31.5 16.2574 31.5 17.5V28.75M13.5 28.75C13.5 29.9926 14.5074 31 15.75 31H29.25C30.4926 31 31.5 29.9926 31.5 28.75M13.5 28.75V21.25C13.5 20.0074 14.5074 19 15.75 19H29.25C30.4926 19 31.5 20.0074 31.5 21.25V28.75'
               stroke='#26A4FF'
-              stroke-width='1.8'
-              stroke-linecap='round'
-              stroke-linejoin='round'
+              strokeWidth='1.8'
+              strokeLinecap='round'
+              strokeLinejoin='round'
             />
             <path
               d='M20.5 24.7222L22.2778 26.5L24.9444 22.5'
               stroke='#26A4FF'
-              stroke-width='1.5'
-              stroke-linecap='round'
-              stroke-linejoin='round'
+              strokeWidth='1.5'
+              strokeLinecap='round'
+              strokeLinejoin='round'
             />
           </svg>
           <div className='mx-1'>
             <h2 className='text-slate-600'>End Date</h2>
-            <h3 className='text-sm text-slate-900'>{data.endDate}</h3>
+            <DateComponent date={data.endDate} />
           </div>
         </div>
       </div>
