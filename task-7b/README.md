@@ -69,9 +69,26 @@ The project uses Redux Toolkit Query to handle data fetching from the backend. I
 
 **Job Posting Dashboard:**
 
+#### skeleton of landing page
+
 ![skeleton of landing page](https://github.com/Naol86/projectPhase/blob/main/task-7b/public/demo/demo-1.png)
+
+#### landing page
+
 ![landing page](https://github.com/Naol86/projectPhase/blob/main/task-7b/public/demo/demo-2.png)
+
+#### skeleton of derail page
+
 ![skeleton of detail page](https://github.com/Naol86/projectPhase/blob/main/task-7b/public/demo/demo-3.png)
-![skeleton of detail page](https://github.com/Naol86/projectPhase/blob/main/task-7b/public/demo/demo-4.png)
+
+#### detail page
+
+![detail page](https://github.com/Naol86/projectPhase/blob/main/task-7b/public/demo/demo-4.png)
+
+#### not found page
+
 ![not found page](https://github.com/Naol86/projectPhase/blob/main/task-7b/public/demo/demo-9.png)
+
+#### responsive on mobile
+
 ![responsive](https://github.com/Naol86/projectPhase/blob/main/task-7b/public/demo/demo-6.png)
