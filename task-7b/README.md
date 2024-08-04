@@ -65,19 +65,13 @@ These components are located in the `components` directory and can be reused acr
 
 The project uses Redux Toolkit Query to handle data fetching from the backend. It provides a simple and efficient way to manage server state.
 
-### Videos
+### ScreenShots
 
 **Job Posting Dashboard:**
 
-[
-Screencast from 08-02-2024 11:35:00 PM.webm](https://raw.githubusercontent.com/Naol86/projectPhase/main/task-7b/public/demo.gif)
-
-## Dependencies
-
-- React
-- Next.js
-- Tailwind CSS
-- React Icons
-
-  [
-  Screencast from 08-02-2024 11:35:00 PM.webm](https://raw.githubusercontent.com/Naol86/projectPhase/main/task-7b/public/demo.gif)
+![skeleton of landing page](/public/demo/demo-1.png)
+![landing page](/public/demo/demo-2.png)
+![skeleton of detail page](/public/demo/demo-3.png)
+![skeleton of detail page](/public/demo/demo-4.png)
+![not found page](/public/demo/demo-9.png)
+![responsive](/public/demo/demo-6.png)
