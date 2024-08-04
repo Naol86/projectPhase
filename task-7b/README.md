@@ -71,3 +71,10 @@ The project uses Redux Toolkit Query to handle data fetching from the backend. I
 
 [![Dashboard Video](http://img.youtube.com/vi/demo/0.jpg)](./public/demo.gif)
 [Screencast from 08-02-2024 11:35:00 PM.webm](https://github.com/Naol86/projectPhase/blob/main/task-7b/public/demo.webm)
+
+### Notes:
+
+- **Relative Path:** `./public/demo.gif` is a relative path from the location of your README file. If you put the GIF in another folder, adjust the path accordingly.
+- **GitHub Pages:** If you use GitHub Pages or another hosting service, ensure that the file path is correct and accessible.
+
+This way, when users view your README file on GitHub, they will see the GIFs embedded directly in the document.
