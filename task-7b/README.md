@@ -70,3 +70,4 @@ The project uses Redux Toolkit Query to handle data fetching from the backend. I
 **Job Posting Dashboard:**
 
 [![Dashboard Video](http://img.youtube.com/vi/demo/0.jpg)](./public/demo.webm)
+[Screencast from 08-02-2024 11:35:00 PM.webm](https://github.com/Naol86/projectPhase/blob/main/task-7b/public/demo.webm)
