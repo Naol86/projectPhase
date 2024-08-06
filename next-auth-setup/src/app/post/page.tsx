@@ -1,5 +1,8 @@
+import { getServerSession } from 'next-auth/next';
 import React from 'react';
 
-export default function page() {
+export default async function page() {
+  const session = await getServerSession();
+  console.log('this is from post', session);
   return <div>wel come to post page</div>;
 }

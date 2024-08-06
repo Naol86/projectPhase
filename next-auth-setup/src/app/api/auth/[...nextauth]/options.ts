@@ -1,56 +1,103 @@
-// import git hub provider
+import NextAuth, { NextAuthOptions } from 'next-auth';
 import GitHubProvider from 'next-auth/providers/github';
-// import google provider
 import GoogleProvider from 'next-auth/providers/google';
-// custom provider
 import CredentialsProvider from 'next-auth/providers/credentials';
+import { jwtDecode } from 'jwt-decode';
 
-// import next auth
-import NextAuth from 'next-auth';
+interface Token {
+  accessToken: string;
+  refreshToken: string;
+  accessTokenExpires: number;
+  error?: string;
+}
 
-// create options
-export const options = {
-  // configure providers
+async function refreshAccessToken(token: Token): Promise<Token> {
+  try {
+    const response = await fetch('/api/auth/refresh', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        refreshToken: token.refreshToken,
+      }),
+    });
+
+    const refreshedTokens = await response.json();
+
+    return {
+      ...token,
+      accessToken: refreshedTokens.accessToken,
+      accessTokenExpires: (jwtDecode(refreshedTokens.accessToken) as { exp: number }).exp * 1000,
+    };
+  } catch (error) {
+    console.error('Error refreshing access token:', error);
+    return {
+      ...token,
+      error: 'RefreshAccessTokenError',
+    };
+  }
+}
+
+export const authOptions: NextAuthOptions = {
   providers: [
-    // git hub provider
     GitHubProvider({
       clientId: process.env.GITHUB_ID as string,
       clientSecret: process.env.GITHUB_SECRET as string,
     }),
-
-    // google provider
     GoogleProvider({
       clientId: process.env.GOOGLE_ID as string,
       clientSecret: process.env.GOOGLE_SECRET as string,
     }),
-    // custom provider
     CredentialsProvider({
       name: 'Credentials',
       credentials: {
-        username: { label: 'Username', type: 'text', placeholder: 'enter ur name' },
+        username: { label: 'Username', type: 'text', placeholder: 'enter your name' },
         password: { label: 'Password', type: 'password' },
       },
-      async authorize(credentials: Record<'username' | 'password', string> | undefined) {
-        console.log('user data', credentials);
+      async authorize(credentials) {
         const res = await fetch('https://akil-backend.onrender.com/login', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(credentials),
         });
-        console.log('res is ', res);
         const user = await res.json();
-        console.log('message from backend', user);
+
         if (user.success) {
-          return user;
+          return {
+            id: user.data.id,
+            accessToken: user.data.accessToken,
+            refreshToken: user.data.refreshToken,
+            name: user.data.name,
+            email: user.data.email,
+            role: user.data.role,
+            profileComplete: user.data.profileComplete,
+          };
         } else {
           return null;
         }
       },
     }),
   ],
-  // configure secret key
-  secret: process.env.NEXTAUTH_SECRET,
+  secret: process.env.NEXTAUTH_SECRET as string,
+  callbacks: {
+    async jwt({ token, user }): Promise<any> {
+      if (user) {
+        token.accessToken = user.accessToken;
+        token.refreshToken = user.refreshToken;
+        token.accessTokenExpires = (jwtDecode(user.accessToken) as { exp: number }).exp * 1000;
+      }
+
+      if (Date.now() < (token as Token).accessTokenExpires) {
+        return token;
+      }
+
+      return refreshAccessToken(token as Token);
+    },
+    async session({ session, token }) {
+      session.accessToken = (token as Token).accessToken;
+      session.refreshToken = (token as Token).refreshToken;
+      return session;
+    },
+  },
 };
 
-// export handler
-export default NextAuth(options);
+export default NextAuth(authOptions);

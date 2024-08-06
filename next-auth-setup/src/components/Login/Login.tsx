@@ -23,10 +23,11 @@ export default function Login() {
       email: data.emailaddress,
       password: data.password,
     });
+    console.log(result);
 
-    if (result?.error) {
+    if (!result?.ok) {
       // Handle login errors here (optional)
-      console.log(result.error);
+      console.log(result?.error);
     } else {
       // Redirect to the home page after successful authentication
       router.push('/');

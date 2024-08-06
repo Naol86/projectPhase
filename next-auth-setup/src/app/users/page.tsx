@@ -1,13 +1,12 @@
+'use client';
 import { getServerSession } from 'next-auth';
+import { getSession } from 'next-auth/react';
 import React from 'react';
 
 export default async function page() {
-  const session = await getServerSession();
-  console.log(session);
+  // const session = await getServerSession();
+  const session = await getSession();
+  console.log('from users page', session);
 
-  if (!session) {
-    return <div>you are not logged in</div>;
-  }
-
-  return <div>wel come to users page</div>;
+  return <div>wel come to users page {session?.user?.name}</div>;
 }

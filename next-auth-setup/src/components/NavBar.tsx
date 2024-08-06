@@ -1,9 +1,10 @@
+import { authOptions } from '@/app/api/auth/[...nextauth]/options';
 import { getServerSession } from 'next-auth';
 import Link from 'next/link';
 import React from 'react';
 
 export default async function NavBar() {
-  const session = await getServerSession();
+  const session = await getServerSession(authOptions);
   console.log(session);
   return (
     <div className='bg-sky-200 text-2xl font-semibold flex justify-around'>
