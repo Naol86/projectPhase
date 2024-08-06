@@ -1,3 +1,3 @@
 ### screenshots
-![login](./demo-1.png)
-![signup](./demo-2.png)
+![login](./demo/demo-1.png)
+![signup](./demo/demo-2.png)
