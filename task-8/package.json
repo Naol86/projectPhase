@@ -9,10 +9,23 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@hookform/resolvers": "^3.9.0",
+    "class-variance-authority": "^0.7.0",
+    "clsx": "^2.1.1",
+    "input-otp": "^1.2.4",
+    "jwt-decode": "^4.0.0",
+    "lucide-react": "^0.424.0",
     "next": "14.2.5",
+    "next-auth": "^4.24.7",
     "react": "^18",
     "react-dom": "^18",
-    "react-select": "^5.8.0"
+    "react-form-hook": "^0.0.1",
+    "react-hook-form": "^7.52.2",
+    "react-select": "^5.8.0",
+    "react-toastify": "^10.0.5",
+    "tailwind-merge": "^2.4.0",
+    "tailwindcss-animate": "^1.0.7",
+    "zod": "^3.23.8"
   },
   "devDependencies": {
     "@types/node": "^20",

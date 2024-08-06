@@ -1,5 +1,6 @@
 import { JobPosting } from '@/type/type';
 import JobList from '@/components/JobList/JobList';
+import Link from 'next/link';
 
 export default async function Page() {
   const posts: Promise<JobPosting> = await loader();
@@ -10,6 +11,7 @@ export default async function Page() {
 
   return (
     <>
+      <Link href='/api/auth/signout?callbackUrl=/'> logout</Link>
       <JobList data={data} />
     </>
   );
