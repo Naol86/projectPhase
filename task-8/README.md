@@ -1,64 +1,15 @@
-# README
+#### login
 
-## Job Posting Cards and Dashboard using Next.js
+![skeleton of landing page](https://github.com/Naol86/projectPhase/blob/main/task-8/public/demo/demo-1.png)
 
-This project implements a job posting dashboard using Next.js. The application is structured using reusable components to ensure modularity and ease of maintenance.
+#### login
 
-### Table of Contents
+![landing page](https://github.com/Naol86/projectPhase/blob/main/task-8/public/demo/demo-2.png)
 
-- [Features](#features)
-- [Installation](#installation)
-- [Usage](#usage)
-- [Components](#components)
-- [Screenshots](#screenshots)
+#### skeleton of derail page
 
-### Features
+![skeleton of detail page](https://github.com/Naol86/projectPhase/blob/main/task-8/public/demo/demo-3.png)
 
-- Display job postings in card format.
-- Dashboard to manage job postings.
-- Responsive design.
+#### detail page
 
-### Installation
-
-1. **Clone the repository:**
-
-   ```bash
-   git clone https://github.com/naol86/projectPhase.git
-   cd task-6
-   ```
-
-2. **Install dependencies:**
-
-   ```bash
-   npm install
-   ```
-
-3. **Run the development server:**
-   ```bash
-   npm run dev
-   ```
-   Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-### Usage
-
-After installation, you can start the application and view the job postings on the dashboard. You can add, edit, and delete job postings from the dashboard.
-
-### Components
-
-The project is structured using the following main components:
-
-1. **JobCard.js:** Displays individual job posting details.
-2. **JobList.js:** Lists all job postings using the JobCard component.
-   ......
-
-These components are located in the `components` directory and can be reused across different parts of the application.
-
-### Screenshots
-
-**Job Posting Dashboard:**
-
-![Dashboard](./demo/demo-1a.png)
-
-**Job Posting Cards:**
-
-![Job Cards](./demo/demo-2.png)
+![detail page](https://github.com/Naol86/projectPhase/blob/main/task-8/public/demo/demo-4.png)

@@ -4,6 +4,7 @@ import NextAuth, {
   User as NextAuthUser,
 } from 'next-auth';
 import CredentialsProvider from 'next-auth/providers/credentials';
+import GoogleProvider from 'next-auth/providers/google';
 import { jwtDecode } from 'jwt-decode';
 
 interface Token {
@@ -78,9 +79,19 @@ export const authOptions: NextAuthOptions = {
         }
       },
     }),
+    GoogleProvider({
+      clientId: process.env.GOOGLE_CLIENT_ID as string,
+      clientSecret: process.env.GOOGLE_CLIENT_SECRET as string,
+    }),
   ],
   secret: process.env.NEXTAUTH_SECRET as string,
   callbacks: {
+    // you can callback a function when user is logged in and jwt is created
+    async signIn({ user, account, profile, email, credentials }) {
+      console.log('when sign in ', user, account, profile, email, credentials, 'end');
+      return true;
+    },
+
     async jwt({ token, user }): Promise<any> {
       if (user) {
         token.accessToken = user.accessToken;

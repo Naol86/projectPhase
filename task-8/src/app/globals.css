@@ -3,3 +3,13 @@
 @tailwind utilities;
 
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Epilogue:wght@300;400;600;700;800;900;1000&display=swap');
+
+@layer base {
+  * {
+    @apply font-epilogue;
+  }
+
+  h1 {
+    @apply my-1 text-2xl font-[900] text-slate-800 font-poppins;
+  }
+}
