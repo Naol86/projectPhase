@@ -1,15 +1,11 @@
-#### login
+### Landing Page
 
-![skeleton of landing page](https://github.com/Naol86/projectPhase/blob/main/task-8/public/demo/demo-1.png)
+![Landing Page](https://github.com/Naol86/projectPhase/blob/main/task-8/demo/demo-1.png)
+_Landing page when user enters the Todo list_
 
-#### login
-
-![landing page](https://github.com/Naol86/projectPhase/blob/main/task-8/public/demo/demo-2.png)
-
-#### skeleton of derail page
-
-![skeleton of detail page](https://github.com/Naol86/projectPhase/blob/main/task-8/public/demo/demo-3.png)
-
-#### detail page
-
-![detail page](https://github.com/Naol86/projectPhase/blob/main/task-8/public/demo/demo-4.png)
+![Landing Page](https://github.com/Naol86/projectPhase/blob/main/task-8/demo/demo-2.png)
+_Landing page when user enters the Todo list_
+![Landing Page](https://github.com/Naol86/projectPhase/blob/main/task-8/demo/demo-3.png)
+_Landing page when user enters the Todo list_
+![Landing Page](https://github.com/Naol86/projectPhase/blob/main/task-8/demo/demo-4.png)
+_Landing page when user enters the Todo list_
