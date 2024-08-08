@@ -13,7 +13,7 @@ export default function Button({
 }) {
   return (
     <button
-      className={`py-1.5 px-2.5 mr-2 text-xs  rounded-2xl ${background} ${border} ${text} font-semibold min-w-14 inline-block`}
+      className={`py-1 px-2.5 mr-2 text-xs  rounded-2xl ${background} ${border} ${text} font-semibold min-w-14 inline-block`}
     >
       {value}
     </button>

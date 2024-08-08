@@ -2,10 +2,18 @@
 import LoginForm from '@/components/Form/LoginForm';
 import React from 'react';
 import Image from 'next/image';
-import { SessionProvider } from 'next-auth/react';
+import { SessionProvider, useSession } from 'next-auth/react';
 import { ToastContainer } from 'react-toastify';
 
-export default function page() {
+import 'react-toastify/dist/ReactToastify.css';
+import { useRouter } from 'next/navigation';
+import { getServerSession } from 'next-auth';
+
+export default function Page() {
+  // const router = useRouter();
+  // const session = useSession();
+  // console.log('session is ', session);
+
   return (
     <>
       <div className='bg-white w-screen h-screen flex justify-around items-center'>
@@ -26,7 +34,7 @@ export default function page() {
           <LoginForm />
         </SessionProvider>
       </div>
-      {/* <ToastContainer
+      <ToastContainer
         position='top-right'
         autoClose={4000}
         hideProgressBar={false}
@@ -37,7 +45,7 @@ export default function page() {
         className=''
       />
 
-      <ToastContainer /> */}
+      <ToastContainer />
     </>
   );
 }

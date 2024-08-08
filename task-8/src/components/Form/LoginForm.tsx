@@ -7,9 +7,10 @@ import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { signIn, useSession } from 'next-auth/react';
 import Link from 'next/link';
-import { useRouter } from 'next/navigation';
+import { redirect, useRouter } from 'next/navigation';
 
 import 'react-toastify/dist/ReactToastify.css';
+import { toast } from 'react-toastify';
 
 const LoginFormSchema = z.object({
   email: z
@@ -32,6 +33,12 @@ function LoginForm() {
   const session = useSession();
   const router = useRouter();
 
+  if (session.data) {
+    // redirect('/posts');
+    console.log('redirect user to posts', session);
+    router.push('/posts');
+  }
+
   const {
     register,
     handleSubmit,
@@ -42,24 +49,25 @@ function LoginForm() {
 
   const onSubmit = async (data: FormData) => {
     console.log(data, 'data is ');
-    const result = await signIn('credentials', {
-      // redirect: false,
-      email: data.email,
-      password: data.password,
-      callbackUrl: '/posts',
-    });
-    console.log(result, 'result of login ');
-    // cont response = await result.json();
-
-    if (!result?.ok) {
-      // Handle login errors here (optional)
-      // toast.error('Invalid email or password');
-      console.log(result?.error);
-    } else {
-      // Redirect to the home page after successful authentication
-      console.log('loged in testing web app with kiya kebe dibaba');
-      // redirect('/posts');
-      // router.push('/posts');
+    try {
+      const result = await signIn('credentials', {
+        redirect: false,
+        email: data.email,
+        password: data.password,
+      });
+      console.log('you are logged', result);
+      if (!result?.ok) {
+        throw new Error('invalid credentials');
+      }
+      if (result?.ok && result?.url) {
+        console.log('you are logged in', result?.url);
+        const parsedUrl = new URL(result?.url);
+        const callbackUrl = parsedUrl.searchParams.get('callbackUrl');
+        console.log(callbackUrl, 'callback url');
+        router.push(callbackUrl as string);
+      }
+    } catch (error) {
+      toast.error('invalid credentials');
     }
   };
 

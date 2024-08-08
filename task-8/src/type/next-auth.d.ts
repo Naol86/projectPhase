@@ -2,6 +2,8 @@
 import NextAuth from 'next-auth';
 import { JWT } from 'next-auth/jwt';
 
+// overwrite the default session and user types
+
 declare module 'next-auth' {
   interface Session {
     accessToken: string;
@@ -16,9 +18,12 @@ declare module 'next-auth' {
     email: string;
     role: string;
     profileComplete: boolean;
+    message: string;
+    success: boolean;
   }
 }
 
+// overwrite the default JWT type
 declare module 'next-auth/jwt' {
   interface JWT {
     accessToken: string;

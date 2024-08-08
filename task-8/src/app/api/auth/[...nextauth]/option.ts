@@ -2,11 +2,13 @@ import NextAuth, {
   NextAuthOptions,
   Session as NextAuthSession,
   User as NextAuthUser,
+  User,
 } from 'next-auth';
 import CredentialsProvider from 'next-auth/providers/credentials';
 import GoogleProvider from 'next-auth/providers/google';
 import { jwtDecode } from 'jwt-decode';
 
+// initialize token interface
 interface Token {
   accessToken: string;
   refreshToken: string;
@@ -14,12 +16,17 @@ interface Token {
   error?: string;
 }
 
+// initialize custom session interface by extending NextAuthSession
 interface CustomSession extends NextAuthSession {
   accessToken: string;
   refreshToken: string;
 }
 
+// write refreshAccessToken function to refresh the access token every 1000 milliseconds
+
 async function refreshAccessToken(token: Token): Promise<Token> {
+  // to refresh the access token, we need to send a request to the server
+  console.log('refreshing token');
   try {
     const response = await fetch(`/api/auth/refresh`, {
       method: 'POST',
@@ -63,8 +70,8 @@ export const authOptions: NextAuthOptions = {
           body: JSON.stringify(data),
         });
         const user = await res.json();
-        console.log('user is ', user);
-        if (res.ok && user) {
+        console.log('user is from option.ts', user);
+        if (res.status === 200 && user) {
           return {
             id: user.data.id,
             accessToken: user.data.accessToken,
@@ -73,6 +80,8 @@ export const authOptions: NextAuthOptions = {
             email: user.data.email,
             role: user.data.role,
             profileComplete: user.data.profileComplete,
+            message: user.message,
+            success: true,
           };
         } else {
           return null;
@@ -109,6 +118,10 @@ export const authOptions: NextAuthOptions = {
       (session as CustomSession).refreshToken = token.refreshToken;
       return session;
     },
+    // async redirect(params) {
+    //   console.log('redirect is ', params);
+    //   return params.baseUrl;
+    // },
   },
 };
 

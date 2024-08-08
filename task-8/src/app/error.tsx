@@ -9,5 +9,9 @@ export default function error({
   error: Error & { digest?: string };
   reset: () => void;
 }) {
-  return <div>{error?.message}</div>;
+  return (
+    <div className='text-3xl bg-slate-400 w-screen min-h-screen flex justify-center items-center'>
+      {error?.message}
+    </div>
+  );
 }
