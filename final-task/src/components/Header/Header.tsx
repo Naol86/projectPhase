@@ -5,7 +5,7 @@ import { useSession } from 'next-auth/react';
 
 export default function Header({ count }: { count: number }) {
   const session = useSession();
-  // console.log('session is ', session);
+  // console.log('log in session', session);
   return (
     <div>
       <div className='flex items-center justify-between pr-2 my-5 mb-10'>
@@ -17,9 +17,15 @@ export default function Header({ count }: { count: number }) {
         <div className='flex items-center font-epilogue'>
           <h3 className='mx-2 text-sm font-medium text-slate-500'>sorted by:</h3>
           <SelectSortedBy />
+          <button className='text-lg font-medium bg-slate-800 text-white px-3 py-1 rounded-lg'>
+            {!session.data ? (
+              <Link href='/api/auth/signin'>Login</Link>
+            ) : (
+              <Link href='/api/auth/signout?callbackUrl=/'> logout</Link>
+            )}
+          </button>
         </div>
       </div>
-      <Link href='/api/auth/signout?callbackUrl=/'> logout</Link>
     </div>
   );
 }

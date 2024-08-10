@@ -1,7 +1,7 @@
 'use client';
 import Header from '@/components/Header/Header';
 import JobCard from '@/components/JobCard/JobCard';
-import { JobPost, JobPosting } from '@/type/type';
+import { JobPost, JobPosting } from '@/types/type';
 import { SessionProvider } from 'next-auth/react';
 
 export default function JobList({ data }: { data: JobPosting }) {

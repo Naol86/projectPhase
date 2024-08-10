@@ -26,14 +26,13 @@ const LoginFormSchema = z.object({
 
 type FormData = z.infer<typeof LoginFormSchema>;
 
-function LoginForm() {
+function LoginForm(req: any) {
   const session = useSession();
   const router = useRouter();
 
   if (session.data) {
-    // redirect('/posts');
-    console.log('redirect user to posts', session);
-    router.push('/posts');
+    // console.log('redirect user to posts', session);
+    router.push('/opportunities');
   }
 
   const {
@@ -51,15 +50,16 @@ function LoginForm() {
         email: data.email,
         password: data.password,
       });
-      console.log('result from signIn', result);
+      // console.log('result from signIn', result);
       if (!result?.ok) {
         throw new Error('invalid credentials');
       }
       if (result?.ok) {
+        // console.log('redirecting to ', result?.url);
         const parsedUrl = new URL(result?.url || '/');
         const callbackUrl = parsedUrl.searchParams.get('callbackUrl');
-        // console.log('callback url', callbackUrl);
-        // router.push(callbackUrl as string);
+        // console.log('callbackUrl is ', callbackUrl);
+        router.push(callbackUrl || '/opportunities');
       }
     } catch (error) {
       alert('invalid credentials');

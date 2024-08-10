@@ -1,6 +1,19 @@
-import { NextAuthOptions } from 'next-auth';
+import { NextAuthOptions, Session as NextAuthSession } from 'next-auth';
 import NextAuth from 'next-auth';
 import CredentialsProvider from 'next-auth/providers/credentials';
+
+interface Token {
+  accessToken: string;
+  refreshToken: string;
+  accessTokenExpires: number;
+  error?: string;
+}
+
+// initialize custom session interface by extending NextAuthSession
+interface CustomSession extends NextAuthSession {
+  accessToken: string;
+  refreshToken: string;
+}
 
 export const authOptions: NextAuthOptions = {
   providers: [
@@ -24,7 +37,17 @@ export const authOptions: NextAuthOptions = {
         // console.log('first user is ', user);
         if (res.status === 200) {
           // console.log('authorize response is ', user);
-          return user.data;
+          return {
+            id: user.data.id,
+            email: user.data.email,
+            accessToken: user.data.accessToken,
+            refreshToken: user.data.refreshToken,
+            profileComplete: user.data.profileComplete,
+            message: user.message,
+            success: user.success,
+            name: user.data.name,
+            role: user.data.role,
+          };
         } else {
           return null;
         }
@@ -40,16 +63,23 @@ export const authOptions: NextAuthOptions = {
     async jwt({ token, user }) {
       // console.log('first token is ', token, 'user in jwt is ', user);
       if (user) {
-        token = { ...token, ...user };
+        // token = { ...token, ...user };
+        token.accessToken = user.accessToken;
+        token.refreshToken = user.refreshToken;
       }
       // console.log('new token is ', token);
       // token.name = user;
       return token;
     },
     async session({ session, token }) {
-      session.user = token;
+      // session.user = token;
+      session.accessToken = token.accessToken;
+      session.refreshToken = token.refreshToken;
       // console.log('first session is ', session, 'token in session is ', token);
       return session;
+    },
+    async redirect({ url, baseUrl }) {
+      return baseUrl;
     },
   },
 };

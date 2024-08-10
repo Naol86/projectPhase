@@ -4,7 +4,6 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 import Link from 'next/link';
-import { toast } from 'react-toastify';
 import { useRouter } from 'next/navigation';
 import Image from 'next/image';
 import { signIn } from 'next-auth/react';
@@ -52,18 +51,10 @@ export default function SignUpForm() {
     });
     const res = await response.json();
     if (!res.success) {
-      toast.error(res.message, {
-        position: 'top-right',
-        autoClose: 5000,
-        hideProgressBar: false,
-      });
+      alert(res.message);
     } else {
       router.push(`/api/auth/verify?email=${data.email}`);
-      toast.success(res.message, {
-        position: 'top-right',
-        autoClose: 4000,
-        hideProgressBar: false,
-      });
+      alert(res.message);
     }
   };
 

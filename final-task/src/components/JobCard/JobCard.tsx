@@ -1,5 +1,5 @@
 import Button from '../Buttons/Button';
-import { JobPost } from '../../type/type';
+import { JobPost } from '@/types/type';
 import Image from 'next/image';
 import Bookmark from '../Bookmark/Bookmark';
 import Link from 'next/link';
@@ -9,7 +9,7 @@ function JobCard({ data }: { data: JobPost }) {
   return (
     <div className='flex py-4 p-1 md:px-8 sm:px-4 border-2 rounded-[30px] space-x-2 my-3'>
       <div className='sm:w-[60px] h-[60px] flex-shrink-0 my-1'>
-        <Link href={`/posts/${data.id}`} key={data.id}>
+        <Link href={`/opportunities/${data.id}`} key={data.id}>
           <Image
             src={data.logoUrl}
             alt='company logo'
@@ -21,7 +21,7 @@ function JobCard({ data }: { data: JobPost }) {
       </div>
       <div className='max-w-2xl mx-2 space-y-1 w-full'>
         <div className='flex justify-between items-center'>
-          <Link href={`/posts/${data.id}`} key={data.id}>
+          <Link href={`/opportunities/${data.id}`} key={data.id}>
             <h1 className=''>{data.title}</h1>
           </Link>
           <SessionProvider>
