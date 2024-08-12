@@ -1,13 +1,8 @@
 import About from '@/components/About/About';
 import Detail from '@/components/Detail/Detail';
-import { getServerSession } from 'next-auth';
-import { getSession } from 'next-auth/react';
-import { NextRequest } from 'next/server';
 import React from 'react';
 
 export default async function page({ params: { id } }: { params: { id: string } }) {
-  const session = await getServerSession();
-  console.log('request is ', session, 'request end here');
   const { data } = await loader(id);
   return (
     <div className='flex p-5 justify-evenly'>

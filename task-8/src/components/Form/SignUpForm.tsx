@@ -37,8 +37,6 @@ export default function SignUpForm() {
   });
 
   const onSubmit = async (data: FormData) => {
-    console.log(data), 'sign up form';
-
     const response = await fetch(`https://akil-backend.onrender.com/signup`, {
       method: 'POST',
       headers: {
@@ -67,12 +65,10 @@ export default function SignUpForm() {
         hideProgressBar: false,
       });
     }
-    console.log('response of signup', res);
   };
 
   const handleGoogleSignUp = async () => {
     const response = await signIn('google');
-    console.log(response);
   };
 
   return (

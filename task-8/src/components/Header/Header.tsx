@@ -5,7 +5,7 @@ import { useSession } from 'next-auth/react';
 
 export default function Header({ count }: { count: number }) {
   const session = useSession();
-  console.log('session is ', session);
+  // console.log('session is ', session);
   return (
     <div>
       <div className='flex items-center justify-between pr-2 my-5 mb-10'>

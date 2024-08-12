@@ -26,7 +26,7 @@ interface CustomSession extends NextAuthSession {
 
 async function refreshAccessToken(token: Token): Promise<Token> {
   // to refresh the access token, we need to send a request to the server
-  console.log('refreshing token');
+  // console.log('refreshing token', token);
   try {
     const response = await fetch(`/api/auth/refresh`, {
       method: 'POST',
@@ -61,7 +61,7 @@ export const authOptions: NextAuthOptions = {
       },
       async authorize(credentials) {
         const data = { email: credentials?.email, password: credentials?.password };
-        console.log('the data is ', data);
+        // console.log('authorize credentials', credentials);
         const res = await fetch(`https://akil-backend.onrender.com/login`, {
           method: 'POST',
           headers: {
@@ -70,7 +70,7 @@ export const authOptions: NextAuthOptions = {
           body: JSON.stringify(data),
         });
         const user = await res.json();
-        console.log('user is from option.ts', user);
+        // console.log('response for authorization', user);
         if (res.status === 200 && user) {
           return {
             id: user.data.id,
@@ -97,11 +97,12 @@ export const authOptions: NextAuthOptions = {
   callbacks: {
     // you can callback a function when user is logged in and jwt is created
     async signIn({ user, account, profile, email, credentials }) {
-      console.log('when sign in ', user, account, profile, email, credentials, 'end');
+      // console.log('signIn callback', user, account, profile, email, credentials);
       return true;
     },
 
     async jwt({ token, user }): Promise<any> {
+      // console.log('jwt callback ', token, user);
       if (user) {
         token.accessToken = user.accessToken;
         token.refreshToken = user.refreshToken;
@@ -110,10 +111,10 @@ export const authOptions: NextAuthOptions = {
       if (token && Date.now() < (token.accessTokenExpires as number)) {
         return token;
       }
-
       return refreshAccessToken(token as Token);
     },
     async session({ session, token }) {
+      // console.log('session callback ', session, token);
       (session as CustomSession).accessToken = token.accessToken;
       (session as CustomSession).refreshToken = token.refreshToken;
       return session;

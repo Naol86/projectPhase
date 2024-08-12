@@ -1,21 +1,33 @@
 import Button from '../Buttons/Button';
 import { JobPost } from '../../type/type';
 import Image from 'next/image';
+import Bookmark from '../Bookmark/Bookmark';
+import Link from 'next/link';
+import { SessionProvider } from 'next-auth/react';
 
 function JobCard({ data }: { data: JobPost }) {
   return (
     <div className='flex py-4 p-1 md:px-8 sm:px-4 border-2 rounded-[30px] space-x-2 my-3'>
       <div className='sm:w-[60px] h-[60px] flex-shrink-0 my-1'>
-        <Image
-          src={data.logoUrl}
-          alt='company logo'
-          width={50}
-          height={50}
-          className='block object-cover w-full h-full'
-        />
+        <Link href={`/posts/${data.id}`} key={data.id}>
+          <Image
+            src={data.logoUrl}
+            alt='company logo'
+            width={50}
+            height={50}
+            className='block object-cover w-full h-full'
+          />
+        </Link>
       </div>
-      <div className='max-w-2xl mx-2 space-y-1'>
-        <h1 className=''>{data.title}</h1>
+      <div className='max-w-2xl mx-2 space-y-1 w-full'>
+        <div className='flex justify-between items-center'>
+          <Link href={`/posts/${data.id}`} key={data.id}>
+            <h1 className=''>{data.title}</h1>
+          </Link>
+          <SessionProvider>
+            <Bookmark id={data.id} bookmarked={data.isBookmarked} />
+          </SessionProvider>
+        </div>
         <h3 className='text-xs text-slate-500 font-epilogue'>{data.location}</h3>
         <p className='py-1 text-sm font-medium text-justify font-epilogue text-slate-700'>
           {data.description}

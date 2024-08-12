@@ -48,23 +48,22 @@ function LoginForm() {
   });
 
   const onSubmit = async (data: FormData) => {
-    console.log(data, 'data is ');
     try {
       const result = await signIn('credentials', {
         redirect: false,
         email: data.email,
         password: data.password,
+        callbackUrl: '/posts',
       });
-      console.log('you are logged', result);
+      console.log('result from signIn', result);
       if (!result?.ok) {
         throw new Error('invalid credentials');
       }
-      if (result?.ok && result?.url) {
-        console.log('you are logged in', result?.url);
-        const parsedUrl = new URL(result?.url);
+      if (result?.ok) {
+        const parsedUrl = new URL(result?.url || '/');
         const callbackUrl = parsedUrl.searchParams.get('callbackUrl');
-        console.log(callbackUrl, 'callback url');
-        router.push(callbackUrl as string);
+        // console.log('callback url', callbackUrl);
+        // router.push(callbackUrl as string);
       }
     } catch (error) {
       toast.error('invalid credentials');

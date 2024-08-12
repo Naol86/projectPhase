@@ -9,7 +9,7 @@ export default function SelectSortedBy() {
   ];
   return (
     <>
-      <Select options={options} className='h-10 m-1 text-sm outline-none w-52' />
+      <Select options={options} className='h-10 m-1 text-sm outline-none md:w-52' />
     </>
   );
 }

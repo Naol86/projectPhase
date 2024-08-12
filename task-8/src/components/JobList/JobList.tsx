@@ -3,7 +3,6 @@ import Header from '@/components/Header/Header';
 import JobCard from '@/components/JobCard/JobCard';
 import { JobPost, JobPosting } from '@/type/type';
 import { SessionProvider } from 'next-auth/react';
-import Link from 'next/link';
 
 export default function JobList({ data }: { data: JobPosting }) {
   return (
@@ -13,9 +12,7 @@ export default function JobList({ data }: { data: JobPosting }) {
           <Header count={data.count} />
         </SessionProvider>
         {data?.data?.map((data) => (
-          <Link href={`/posts/${data.id}`} key={data.id}>
-            <JobCard key={data.id} data={data} />
-          </Link>
+          <JobCard key={data.id} data={data} />
         ))}
       </div>
     </main>
