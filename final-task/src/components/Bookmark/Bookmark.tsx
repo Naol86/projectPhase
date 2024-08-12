@@ -1,47 +1,13 @@
 'use client';
-
-import axios from 'axios';
-import { useSession } from 'next-auth/react';
+import toggleBookmark from '@/app/api/actions/toggleBookmark';
 import { useRouter } from 'next/navigation';
 
 export default function Bookmark({ id, bookmarked }: { id: string; bookmarked: boolean }) {
   const router = useRouter();
-  const session = useSession();
-
   const handleClick = async () => {
-    // If session data is missing, redirect to the sign-in page
-    if (!session?.data) {
-      router.push('/api/auth/signin?callbackUrl=/opportunities');
-      return;
-    }
-
-    try {
-      let response;
-      if (!bookmarked) {
-        // Use axios for POST request
-        response = await axios.post(
-          `https://akil-backend.onrender.com/bookmarks/${id}`,
-          {}, // No body data, so send an empty object
-          {
-            headers: {
-              'Content-Type': 'application/json',
-              Authorization: `Bearer ${session.data.accessToken}`, // Add token to the Authorization header
-            },
-          },
-        );
-      } else {
-        // Use fetch for DELETE request
-        response = await axios.delete(`https://akil-backend.onrender.com/bookmarks/${id}`, {
-          headers: {
-            'Content-Type': 'application/json',
-            Authorization: `Bearer ${session.data.accessToken}`, // Add token to the Authorization header
-          },
-        });
-      }
-
-      router.refresh(); // Refresh the page
-    } catch (err) {
-      alert('An error occurred. Please try again.');
+    const toggleBookmarkResponse = await toggleBookmark(id, bookmarked);
+    if (toggleBookmarkResponse) {
+      router.refresh();
     }
   };
 

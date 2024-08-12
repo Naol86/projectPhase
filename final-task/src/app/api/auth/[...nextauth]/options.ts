@@ -2,19 +2,6 @@ import { NextAuthOptions, Session as NextAuthSession } from 'next-auth';
 import NextAuth from 'next-auth';
 import CredentialsProvider from 'next-auth/providers/credentials';
 
-interface Token {
-  accessToken: string;
-  refreshToken: string;
-  accessTokenExpires: number;
-  error?: string;
-}
-
-// initialize custom session interface by extending NextAuthSession
-interface CustomSession extends NextAuthSession {
-  accessToken: string;
-  refreshToken: string;
-}
-
 export const authOptions: NextAuthOptions = {
   providers: [
     CredentialsProvider({

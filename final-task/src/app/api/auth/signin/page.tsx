@@ -1,9 +1,8 @@
 import LoginForm from '@/components/Form/LoginForm';
 import React from 'react';
 import Image from 'next/image';
-import { SessionProvider, useSession } from 'next-auth/react';
 import { NextRequest } from 'next/server';
-import AuthProvider from './AuthProvider';
+import AuthProvider from '@/components/AuthProvider/AuthProvider';
 
 export default function Page(req: NextRequest) {
   console.log(req);
