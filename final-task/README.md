@@ -1,36 +1,66 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-## Getting Started
+# Job Posting Cards and Dashboard using Next.js
 
-First, run the development server:
+This project implements a job posting dashboard using Next.js. The application is structured using reusable components to ensure modularity and ease of maintenance.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+### Table of Contents
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- [Features](#features)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Components](#components)
+- [Screenshots](#screenshots)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Features
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+- Display job postings in card format.
+- Dashboard to manage job postings.
+- Responsive design.
+- **Bookmark Button:** Allows users to bookmark job postings for easy access later.
 
-## Learn More
+### Installation
 
-To learn more about Next.js, take a look at the following resources:
+1. **Clone the repository:**
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+   ```bash
+   git clone https://github.com/naol86/projectPhase.git
+   cd final-task
+   ```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+2. **Install dependencies:**
 
-## Deploy on Vercel
+   ```bash
+   npm install
+   ```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+3. **Run the development server:**
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+   ```bash
+   npm run dev
+   ```
+
+   Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+
+### Usage
+
+After installation, you can start the application and view the job postings on the dashboard. You can add, edit, delete, and bookmark job postings from the dashboard.
+
+### Components
+
+The project is structured using the following main components:
+
+1. **JobCard.js:** Displays individual job posting details, including a bookmark button.
+2. **JobList.js:** Lists all job postings using the JobCard component.
+3. **BookmarkButton.js:** Allows users to bookmark and unbookmark job postings.
+
+These components are located in the `components` directory and can be reused across different parts of the application.
+
+### Screenshots
+
+**Job Posting Dashboard:**
+
+![Dashboard](./demo/demo-1.png)
+
+**Job Posting Cards:**
+
+![Job Cards](./demo/demo-2.png)
