@@ -3,7 +3,6 @@ import { JobPost } from '@/types/type';
 import Image from 'next/image';
 import Bookmark from '../Bookmark/Bookmark';
 import Link from 'next/link';
-import AuthProvider from '../AuthProvider/AuthProvider';
 
 function JobCard({ data }: { data: JobPost }) {
   return (
@@ -24,9 +23,7 @@ function JobCard({ data }: { data: JobPost }) {
           <Link href={`/opportunities/${data.id}`} key={data.id}>
             <h1 className=''>{data.title}</h1>
           </Link>
-          <AuthProvider>
-            <Bookmark id={data.id} bookmarked={data.isBookmarked} />
-          </AuthProvider>
+          <Bookmark id={data.id} bookmarked={data.isBookmarked} />
         </div>
         <h3 className='text-xs text-slate-500 font-epilogue'>{data.location}</h3>
         <p className='py-1 text-sm font-medium text-justify font-epilogue text-slate-700'>

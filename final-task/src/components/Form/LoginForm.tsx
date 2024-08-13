@@ -85,6 +85,7 @@ function LoginForm(req: any) {
           </label>
           <input
             type='text'
+            id='email'
             {...register('email')}
             className='w-full font-[600] font-epilogue outline-none rounded-lg p-2 text-indigo-950 text-sm border border-slate-400'
           />
@@ -101,6 +102,7 @@ function LoginForm(req: any) {
           </label>
           <input
             type='password'
+            id='password'
             {...register('password')}
             className='w-full font-[600] font-epilogue outline-none rounded-lg p-2 text-indigo-950 text-sm border border-slate-400'
           />
@@ -110,6 +112,7 @@ function LoginForm(req: any) {
         </div>
         <button
           type='submit'
+          id='submit'
           className='w-full bg-indigo-900 text-white rounded-3xl py-2 font-epilogue font-[700] mt-5 hover:bg-indigo-800 transition-all duration-500'
         >
           Login
