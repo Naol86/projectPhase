@@ -59,7 +59,7 @@ These components are located in the `components` directory and can be reused acr
 
 **Job Posting Dashboard:**
 
-![Dashboard](/demo/demo-1.png)
+![Dashboard](https://github.com/Naol86/projectPhase/blob/main/final-task/public/demo/demo-1.png)
 
 **Job Posting Cards:**
 
